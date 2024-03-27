@@ -1,6 +1,6 @@
 ﻿namespace ProgramaPlanillaPagos
 {
-    partial class Empleados
+    partial class Asistencia
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Empleados));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Asistencia));
             pictureBox9 = new PictureBox();
-            pictureBox8 = new PictureBox();
-            pictureBox7 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
@@ -44,18 +39,6 @@
             pictureBox11 = new PictureBox();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
-            label15 = new Label();
-            textBox4 = new TextBox();
-            comboBox3 = new ComboBox();
-            label14 = new Label();
-            label13 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            comboBox2 = new ComboBox();
-            label12 = new Label();
-            textBox3 = new TextBox();
-            label11 = new Label();
-            textBox2 = new TextBox();
-            label10 = new Label();
             label9 = new Label();
             dateTimePicker1 = new DateTimePicker();
             comboBox1 = new ComboBox();
@@ -71,12 +54,21 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            pictureBox2 = new PictureBox();
+            pictureBox8 = new PictureBox();
+            pictureBox7 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox12 = new PictureBox();
+            pictureBox13 = new PictureBox();
+            label10 = new Label();
+            textBox2 = new TextBox();
+            label11 = new Label();
+            textBox3 = new TextBox();
+            label12 = new Label();
+            textBox4 = new TextBox();
+            pictureBox14 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -85,88 +77,47 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             SuspendLayout();
             // 
             // pictureBox9
             // 
             pictureBox9.BackColor = Color.White;
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(29, 513);
+            pictureBox9.Location = new Point(29, 496);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(35, 36);
             pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox9.TabIndex = 14;
+            pictureBox9.TabIndex = 22;
             pictureBox9.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.BackColor = Color.White;
-            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(29, 336);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(35, 36);
-            pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox8.TabIndex = 13;
-            pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.BackColor = Color.White;
-            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(29, 210);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(35, 36);
-            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox7.TabIndex = 12;
-            pictureBox7.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackColor = Color.White;
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(29, 274);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(35, 36);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 11;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.White;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(29, 135);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(35, 36);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 10;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.White;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(29, 71);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(35, 36);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 9;
-            pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.White;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(29, 6);
+            pictureBox1.Location = new Point(29, -42);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(35, 36);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 8;
+            pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(label12);
+            panel1.Controls.Add(textBox4);
+            panel1.Controls.Add(label11);
+            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(textBox2);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(label18);
             panel1.Controls.Add(label17);
@@ -174,18 +125,6 @@
             panel1.Controls.Add(pictureBox11);
             panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(pictureBox5);
-            panel1.Controls.Add(label15);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(comboBox3);
-            panel1.Controls.Add(label14);
-            panel1.Controls.Add(label13);
-            panel1.Controls.Add(dateTimePicker2);
-            panel1.Controls.Add(comboBox2);
-            panel1.Controls.Add(label12);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(label11);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(label10);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(dateTimePicker1);
             panel1.Controls.Add(comboBox1);
@@ -194,22 +133,22 @@
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(99, 0);
+            panel1.Location = new Point(98, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(809, 570);
-            panel1.TabIndex = 15;
-            panel1.Paint += panel1_Paint;
+            panel1.Size = new Size(845, 571);
+            panel1.TabIndex = 30;
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 197);
+            dataGridView1.Location = new Point(15, 162);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(794, 283);
+            dataGridView1.Size = new Size(794, 328);
             dataGridView1.TabIndex = 40;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
             // label18
             // 
@@ -274,120 +213,6 @@
             pictureBox5.TabIndex = 16;
             pictureBox5.TabStop = false;
             // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.ForeColor = Color.Black;
-            label15.Location = new Point(433, 136);
-            label15.Name = "label15";
-            label15.Size = new Size(90, 20);
-            label15.TabIndex = 26;
-            label15.Text = "Salario Base";
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(433, 159);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(121, 23);
-            textBox4.TabIndex = 25;
-            // 
-            // comboBox3
-            // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "Licenciatura o grado en Informática", "Ingeniería de Software", "Ciencias de la Computación", "Diseño Gráfico", "Diseño de Interacción", "Diseño de Experiencia de Usuario (UX)", "Diseño de Interfaces de Usuario (UI)", "Gestión de Proyectos", "Administración de Empresas", "Ingeniería de Proyectos", "Ingeniería de Sistemas", "Administración de Redes", "Administración de Sistemas de Información", "Calidad del Software", "Tecnologías de la Información" });
-            comboBox3.Location = new Point(433, 105);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(121, 23);
-            comboBox3.TabIndex = 24;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.ForeColor = Color.Black;
-            label14.Location = new Point(433, 82);
-            label14.Name = "label14";
-            label14.Size = new Size(47, 20);
-            label14.TabIndex = 23;
-            label14.Text = "Titulo";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.ForeColor = Color.Black;
-            label13.Location = new Point(567, 136);
-            label13.Name = "label13";
-            label13.Size = new Size(136, 20);
-            label13.TabIndex = 21;
-            label13.Text = "Fecha Contratacion";
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new Point(567, 159);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(230, 23);
-            dateTimePicker2.TabIndex = 20;
-            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Desarrollador software", "Diseñador UX/UI", "Gerente Proyecto", "Especialista QA", "Administrador Sistemas", "Soporte Tecnico" });
-            comboBox2.Location = new Point(299, 105);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 19;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.ForeColor = Color.Black;
-            label12.Location = new Point(299, 82);
-            label12.Name = "label12";
-            label12.Size = new Size(128, 20);
-            label12.TabIndex = 18;
-            label12.Text = "Puesto de Trabajo";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(142, 105);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(147, 72);
-            textBox3.TabIndex = 17;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.ForeColor = Color.Black;
-            label11.Location = new Point(142, 82);
-            label11.Name = "label11";
-            label11.Size = new Size(147, 20);
-            label11.TabIndex = 16;
-            label11.Text = "Direccion Residencia";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(299, 159);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 15;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.ForeColor = Color.Black;
-            label10.Location = new Point(299, 136);
-            label10.Name = "label10";
-            label10.Size = new Size(67, 20);
-            label10.TabIndex = 14;
-            label10.Text = "Telefono";
-            // 
             // label9
             // 
             label9.AutoSize = true;
@@ -395,9 +220,9 @@
             label9.ForeColor = Color.Black;
             label9.Location = new Point(567, 82);
             label9.Name = "label9";
-            label9.Size = new Size(128, 20);
+            label9.Size = new Size(51, 20);
             label9.TabIndex = 13;
-            label9.Text = "Fecha Nacimiento";
+            label9.Text = "Fecha ";
             // 
             // dateTimePicker1
             // 
@@ -410,9 +235,9 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Hombre", "Mujer" });
-            comboBox1.Location = new Point(15, 159);
+            comboBox1.Location = new Point(15, 105);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(113, 23);
+            comboBox1.Size = new Size(65, 23);
             comboBox1.TabIndex = 11;
             // 
             // label8
@@ -420,19 +245,18 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(15, 136);
+            label8.Location = new Point(6, 82);
             label8.Name = "label8";
-            label8.Size = new Size(41, 20);
+            label8.Size = new Size(94, 20);
             label8.TabIndex = 10;
-            label8.Text = "Sexo";
-            label8.Click += label8_Click;
+            label8.Text = "Empleado id";
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(13, 82);
+            label7.Location = new Point(134, 82);
             label7.Name = "label7";
             label7.Size = new Size(64, 20);
             label7.TabIndex = 9;
@@ -440,7 +264,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(13, 105);
+            textBox1.Location = new Point(99, 105);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(113, 23);
             textBox1.TabIndex = 1;
@@ -458,13 +282,13 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(809, 66);
+            panel2.Size = new Size(845, 66);
             panel2.TabIndex = 0;
             // 
             // pictureBox10
             // 
             pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
-            pictureBox10.Location = new Point(774, 0);
+            pictureBox10.Location = new Point(810, 0);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(35, 36);
             pictureBox10.SizeMode = PictureBoxSizeMode.Zoom;
@@ -474,7 +298,7 @@
             // panel4
             // 
             panel4.BackColor = Color.MidnightBlue;
-            panel4.Location = new Point(118, 56);
+            panel4.Location = new Point(505, 56);
             panel4.Name = "panel4";
             panel4.Size = new Size(128, 10);
             panel4.TabIndex = 8;
@@ -545,31 +369,169 @@
             label1.TabIndex = 0;
             label1.Text = "Inicio";
             // 
-            // Empleados
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.White;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(29, 496);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(35, 36);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 29;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.BackColor = Color.White;
+            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
+            pictureBox8.Location = new Point(29, 394);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(35, 36);
+            pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox8.TabIndex = 28;
+            pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.BackColor = Color.White;
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(29, 252);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(35, 36);
+            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox7.TabIndex = 27;
+            pictureBox7.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = Color.White;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(29, 322);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(35, 36);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 26;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.White;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(29, 174);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(35, 36);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 25;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.BackColor = Color.White;
+            pictureBox12.Image = (Image)resources.GetObject("pictureBox12.Image");
+            pictureBox12.Location = new Point(29, 105);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(35, 36);
+            pictureBox12.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox12.TabIndex = 24;
+            pictureBox12.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.BackColor = Color.White;
+            pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
+            pictureBox13.Location = new Point(29, -42);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(35, 36);
+            pictureBox13.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox13.TabIndex = 23;
+            pictureBox13.TabStop = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(218, 82);
+            label10.Name = "label10";
+            label10.Size = new Size(65, 20);
+            label10.TabIndex = 42;
+            label10.Text = "Presente";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(218, 105);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(113, 23);
+            textBox2.TabIndex = 41;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.ForeColor = Color.Black;
+            label11.Location = new Point(337, 82);
+            label11.Name = "label11";
+            label11.Size = new Size(74, 20);
+            label11.TabIndex = 44;
+            label11.Text = "Ausencias";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(337, 105);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(113, 23);
+            textBox3.TabIndex = 43;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.ForeColor = Color.Black;
+            label12.Location = new Point(453, 82);
+            label12.Name = "label12";
+            label12.Size = new Size(67, 20);
+            label12.TabIndex = 46;
+            label12.Text = "Permisos";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(453, 105);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(113, 23);
+            textBox4.TabIndex = 45;
+            // 
+            // pictureBox14
+            // 
+            pictureBox14.Image = (Image)resources.GetObject("pictureBox14.Image");
+            pictureBox14.Location = new Point(29, 30);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(35, 36);
+            pictureBox14.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox14.TabIndex = 52;
+            pictureBox14.TabStop = false;
+            // 
+            // Asistencia
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(908, 570);
+            ClientSize = new Size(943, 571);
+            Controls.Add(pictureBox14);
             Controls.Add(panel1);
-            Controls.Add(pictureBox9);
+            Controls.Add(pictureBox2);
             Controls.Add(pictureBox8);
             Controls.Add(pictureBox7);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox12);
+            Controls.Add(pictureBox13);
+            Controls.Add(pictureBox9);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Empleados";
+            Name = "Asistencia";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Empleados";
-            Load += Empleados_Load;
+            Text = "Asistencia";
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -580,19 +542,34 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
         private PictureBox pictureBox9;
-        private PictureBox pictureBox8;
-        private PictureBox pictureBox7;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private Panel panel1;
+        private DataGridView dataGridView1;
+        private Label label18;
+        private Label label17;
+        private Label label16;
+        private PictureBox pictureBox11;
+        private PictureBox pictureBox6;
+        private PictureBox pictureBox5;
+        private Label label9;
+        private DateTimePicker dateTimePicker1;
+        private ComboBox comboBox1;
+        private Label label8;
+        private Label label7;
+        private TextBox textBox1;
         private Panel panel2;
         private PictureBox pictureBox10;
         private Panel panel4;
@@ -602,30 +579,19 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Label label7;
-        private TextBox textBox1;
-        private Label label8;
-        private ComboBox comboBox1;
-        private TextBox textBox2;
-        private Label label10;
-        private Label label9;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox3;
-        private Label label11;
-        private ComboBox comboBox2;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox8;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox12;
+        private PictureBox pictureBox13;
         private Label label12;
-        private Label label13;
-        private DateTimePicker dateTimePicker2;
-        private ComboBox comboBox3;
-        private Label label14;
-        private Label label15;
         private TextBox textBox4;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox11;
-        private PictureBox pictureBox6;
-        private Label label17;
-        private Label label16;
-        private Label label18;
-        private DataGridView dataGridView1;
+        private Label label11;
+        private TextBox textBox3;
+        private Label label10;
+        private TextBox textBox2;
+        private PictureBox pictureBox14;
     }
 }

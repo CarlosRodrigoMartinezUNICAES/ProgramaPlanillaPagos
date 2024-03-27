@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ProgramaPlanillaPagos
 {
-    public partial class Empleados : Form
+    public partial class Salario : Form
     {
-        public Empleados()
+        public Salario()
         {
             InitializeComponent();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -22,17 +32,7 @@ namespace ProgramaPlanillaPagos
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Empleados_Load(object sender, EventArgs e)
+        private void Salario_Load(object sender, EventArgs e)
         {
 
         }

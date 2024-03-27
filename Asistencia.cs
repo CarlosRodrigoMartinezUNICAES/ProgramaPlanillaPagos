@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ProgramaPlanillaPagos
 {
-    public partial class Empleados : Form
+    public partial class Asistencia : Form
     {
-        public Empleados()
+        public Asistencia()
         {
             InitializeComponent();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -22,17 +27,7 @@ namespace ProgramaPlanillaPagos
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Empleados_Load(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

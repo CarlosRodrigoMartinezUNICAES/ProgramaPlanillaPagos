@@ -36,5 +36,21 @@ namespace ProgramaPlanillaPagos
         {
 
         }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Bono obj = new Bono();
+            obj.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

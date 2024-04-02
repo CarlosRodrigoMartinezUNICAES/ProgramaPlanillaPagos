@@ -39,7 +39,7 @@ namespace ProgramaPlanillaPagos
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
     }
 }

@@ -21,10 +21,5 @@ namespace ProgramaPlanillaPagos
         {
 
         }
-
-        private void pictureBox10_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
     }
 }

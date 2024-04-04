@@ -1,3 +1,5 @@
+using System.Data.SqlClient;
+
 namespace ProgramaPlanillaPagos
 {
     public partial class Principal : Form

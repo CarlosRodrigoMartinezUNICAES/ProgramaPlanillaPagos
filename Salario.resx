@@ -18,7 +18,7 @@
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -230,6 +230,35 @@
         kR2hFEn69xepfsO11HwwMokEsoXcrAbPSWSqdmSBJjMjEompB4lM1SRSkCZjhHzwDWDE73CDQKF73aIG
         aPFXA63l8zHN8WoOfkSp9plzPLl5E89Y1Jw4Bs7uxyj3T7qDDG+z0lMlToVRr4R5rXz3PFU8Y1nr8VQx
         o11mcxl4zueg6v1MJZ5ycZZSnWdtjED0Bl6IgK9g5UjHAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="printPreviewDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="printDocument1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>177, 17</value>
+  </metadata>
+  <data name="printPreviewDialog1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAAAIAAoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////APb29v/29vb/9vb2//b29v/29vb/9vb2//b2
+        9v////8A////AP///wD///8A9vb2//b29v/29vb/9vb2//b29v/29vb/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv/29vb/////AP///wD///8A////APb29v9CQkL/QkJC/0JCQv9CQkL/9vb2/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/9vb2/////wD///8A////AP///wD29vb/QkJC/0JCQv9CQkL/QkJC//b29v9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC//b29v////8A////AP///wD///8A9vb2/0JCQv9CQkL/QkJC/0JCQv/29vb/9vb2//b2
+        9v/29vb/9vb2//b29v/29vb/9vb2//b29v////8A////APb29v9CQkL/QkJC/0JCQv9CQkL/9vb2/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv/29vb/////AP///wD29vb/QkJC/0JCQv9CQkL/QkJC//b2
+        9v9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/9vb2/////wD///8A9vb2/0JCQv9CQkL/QkJC/0JC
+        Qv/29vb/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC//b29v////8A////APb29v/29vb/9vb2//b2
+        9v/29vb/9vb2/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv/29vb/////AP///wD///8A////AP//
+        /wD///8A////APb29v9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/9vb2/////wD///8A////AP//
+        /wD///8A////AP///wD29vb/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC//b29v////8A////AP//
+        /wD///8A////AP///wD///8A9vb2/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv/29vb/////AP//
+        /wD///8A////AP///wD///8A////APb29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2////
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A
 </value>
   </data>
 </root>

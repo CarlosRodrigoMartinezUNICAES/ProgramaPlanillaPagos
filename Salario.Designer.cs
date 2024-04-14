@@ -30,15 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Salario));
             panel1 = new Panel();
-            dataGridView1 = new DataGridView();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            comboBox4 = new ComboBox();
-            label11 = new Label();
             label20 = new Label();
+            label14 = new Label();
+            label12 = new Label();
+            ExcusedTb = new TextBox();
+            AbsTb = new TextBox();
+            PresTb = new TextBox();
+            AttNumCb = new ComboBox();
+            label10 = new Label();
+            BonusIdCb = new ComboBox();
+            SalaryDGV = new DataGridView();
+            BalanceTb = new TextBox();
+            EmpIdCb = new ComboBox();
+            label11 = new Label();
             label19 = new Label();
-            textBox6 = new TextBox();
-            textBox5 = new TextBox();
+            AdvanceTb = new TextBox();
+            BonusTb = new TextBox();
             label18 = new Label();
             label17 = new Label();
             label16 = new Label();
@@ -46,13 +53,13 @@
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             label15 = new Label();
-            textBox4 = new TextBox();
+            BaseSalaryTb = new TextBox();
             label13 = new Label();
-            dateTimePicker2 = new DateTimePicker();
+            SalDate = new DateTimePicker();
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
-            textBox1 = new TextBox();
+            EmpNameTb = new TextBox();
             panel2 = new Panel();
             pictureBox10 = new PictureBox();
             panel4 = new Panel();
@@ -69,8 +76,10 @@
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SalaryDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -87,15 +96,22 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(dataGridView1);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(comboBox4);
-            panel1.Controls.Add(label11);
             panel1.Controls.Add(label20);
+            panel1.Controls.Add(label14);
+            panel1.Controls.Add(label12);
+            panel1.Controls.Add(ExcusedTb);
+            panel1.Controls.Add(AbsTb);
+            panel1.Controls.Add(PresTb);
+            panel1.Controls.Add(AttNumCb);
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(BonusIdCb);
+            panel1.Controls.Add(SalaryDGV);
+            panel1.Controls.Add(BalanceTb);
+            panel1.Controls.Add(EmpIdCb);
+            panel1.Controls.Add(label11);
             panel1.Controls.Add(label19);
-            panel1.Controls.Add(textBox6);
-            panel1.Controls.Add(textBox5);
+            panel1.Controls.Add(AdvanceTb);
+            panel1.Controls.Add(BonusTb);
             panel1.Controls.Add(label18);
             panel1.Controls.Add(label17);
             panel1.Controls.Add(label16);
@@ -103,13 +119,13 @@
             panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(pictureBox5);
             panel1.Controls.Add(label15);
-            panel1.Controls.Add(textBox4);
+            panel1.Controls.Add(BaseSalaryTb);
             panel1.Controls.Add(label13);
-            panel1.Controls.Add(dateTimePicker2);
+            panel1.Controls.Add(SalDate);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(label7);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(EmpNameTb);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(73, 0);
@@ -118,87 +134,161 @@
             panel1.TabIndex = 23;
             panel1.Paint += panel1_Paint;
             // 
-            // dataGridView1
+            // label20
             // 
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 207);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(794, 283);
-            dataGridView1.TabIndex = 39;
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label20.ForeColor = Color.Black;
+            label20.Location = new Point(722, 83);
+            label20.Name = "label20";
+            label20.Size = new Size(74, 20);
+            label20.TabIndex = 48;
+            label20.Text = "Ausencias";
             // 
-            // textBox3
+            // label14
             // 
-            textBox3.Location = new Point(590, 161);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(70, 23);
-            textBox3.TabIndex = 38;
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.ForeColor = Color.Black;
+            label14.Location = new Point(605, 139);
+            label14.Name = "label14";
+            label14.Size = new Size(71, 20);
+            label14.TabIndex = 47;
+            label14.Text = "Presentes";
             // 
-            // textBox2
+            // label12
             // 
-            textBox2.Location = new Point(98, 161);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(121, 23);
-            textBox2.TabIndex = 37;
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.ForeColor = Color.Black;
+            label12.Location = new Point(722, 136);
+            label12.Name = "label12";
+            label12.Size = new Size(67, 20);
+            label12.TabIndex = 46;
+            label12.Text = "Permisos";
             // 
-            // comboBox4
+            // ExcusedTb
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "Hombre", "Mujer" });
-            comboBox4.Location = new Point(130, 104);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(64, 23);
-            comboBox4.TabIndex = 36;
+            ExcusedTb.Enabled = false;
+            ExcusedTb.Location = new Point(722, 160);
+            ExcusedTb.Name = "ExcusedTb";
+            ExcusedTb.Size = new Size(100, 23);
+            ExcusedTb.TabIndex = 45;
+            // 
+            // AbsTb
+            // 
+            AbsTb.Enabled = false;
+            AbsTb.Location = new Point(722, 106);
+            AbsTb.Name = "AbsTb";
+            AbsTb.Size = new Size(100, 23);
+            AbsTb.TabIndex = 44;
+            // 
+            // PresTb
+            // 
+            PresTb.Enabled = false;
+            PresTb.Location = new Point(605, 162);
+            PresTb.Name = "PresTb";
+            PresTb.Size = new Size(100, 23);
+            PresTb.TabIndex = 43;
+            // 
+            // AttNumCb
+            // 
+            AttNumCb.FormattingEnabled = true;
+            AttNumCb.Items.AddRange(new object[] { "Hombre", "Mujer" });
+            AttNumCb.Location = new Point(605, 106);
+            AttNumCb.Name = "AttNumCb";
+            AttNumCb.Size = new Size(102, 23);
+            AttNumCb.TabIndex = 42;
+            AttNumCb.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            AttNumCb.SelectionChangeCommitted += AttNumCb_SelectionChangeCommitted;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(605, 81);
+            label10.Name = "label10";
+            label10.Size = new Size(75, 20);
+            label10.TabIndex = 41;
+            label10.Text = "Asistencia";
+            // 
+            // BonusIdCb
+            // 
+            BonusIdCb.FormattingEnabled = true;
+            BonusIdCb.Items.AddRange(new object[] { "Hombre", "Mujer" });
+            BonusIdCb.Location = new Point(480, 106);
+            BonusIdCb.Name = "BonusIdCb";
+            BonusIdCb.Size = new Size(100, 23);
+            BonusIdCb.TabIndex = 40;
+            BonusIdCb.SelectionChangeCommitted += BonusIdCb_SelectionChangeCommitted;
+            // 
+            // SalaryDGV
+            // 
+            SalaryDGV.AllowUserToOrderColumns = true;
+            SalaryDGV.BackgroundColor = Color.White;
+            SalaryDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            SalaryDGV.Location = new Point(3, 207);
+            SalaryDGV.Name = "SalaryDGV";
+            SalaryDGV.RowTemplate.Height = 25;
+            SalaryDGV.Size = new Size(794, 283);
+            SalaryDGV.TabIndex = 39;
+            SalaryDGV.CellContentClick += SalaryDGV_CellContentClick;
+            // 
+            // BalanceTb
+            // 
+            BalanceTb.Location = new Point(13, 163);
+            BalanceTb.Name = "BalanceTb";
+            BalanceTb.Size = new Size(121, 23);
+            BalanceTb.TabIndex = 37;
+            // 
+            // EmpIdCb
+            // 
+            EmpIdCb.FormattingEnabled = true;
+            EmpIdCb.Items.AddRange(new object[] { "Hombre", "Mujer" });
+            EmpIdCb.Location = new Point(13, 106);
+            EmpIdCb.Name = "EmpIdCb";
+            EmpIdCb.Size = new Size(64, 23);
+            EmpIdCb.TabIndex = 36;
+            EmpIdCb.SelectionChangeCommitted += EmpIdCb_SelectionChangeCommitted;
+            EmpIdCb.SelectedValueChanged += EmpIdCb_SelectedValueChanged;
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label11.ForeColor = Color.Black;
-            label11.Location = new Point(125, 81);
+            label11.Location = new Point(9, 81);
             label11.Name = "label11";
             label11.Size = new Size(94, 20);
             label11.TabIndex = 35;
             label11.Text = "Empleado id";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label20.ForeColor = Color.Black;
-            label20.Location = new Point(584, 135);
-            label20.Name = "label20";
-            label20.Size = new Size(71, 20);
-            label20.TabIndex = 34;
-            label20.Text = "Prestamo";
-            label20.Click += label20_Click;
             // 
             // label19
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label19.ForeColor = Color.Black;
-            label19.Location = new Point(555, 81);
+            label19.Location = new Point(364, 81);
             label19.Name = "label19";
             label19.Size = new Size(70, 20);
             label19.TabIndex = 33;
             label19.Text = "Adelanto";
             // 
-            // textBox6
+            // AdvanceTb
             // 
-            textBox6.Location = new Point(555, 104);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 32;
+            AdvanceTb.Location = new Point(364, 106);
+            AdvanceTb.Name = "AdvanceTb";
+            AdvanceTb.Size = new Size(100, 23);
+            AdvanceTb.TabIndex = 32;
             // 
-            // textBox5
+            // BonusTb
             // 
-            textBox5.Location = new Point(235, 161);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 31;
+            BonusTb.Enabled = false;
+            BonusTb.Location = new Point(480, 150);
+            BonusTb.Name = "BonusTb";
+            BonusTb.Size = new Size(100, 23);
+            BonusTb.TabIndex = 31;
             // 
             // label18
             // 
@@ -207,9 +297,10 @@
             label18.ForeColor = Color.Black;
             label18.Location = new Point(146, 539);
             label18.Name = "label18";
-            label18.Size = new Size(66, 20);
+            label18.Size = new Size(79, 20);
             label18.TabIndex = 30;
-            label18.Text = "Eliminar";
+            label18.Text = "Computar";
+            label18.Click += label18_Click;
             // 
             // label17
             // 
@@ -232,6 +323,7 @@
             label16.Size = new Size(66, 20);
             label16.TabIndex = 9;
             label16.Text = "Guardar";
+            label16.Click += label16_Click;
             // 
             // pictureBox11
             // 
@@ -268,43 +360,44 @@
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label15.ForeColor = Color.Black;
-            label15.Location = new Point(421, 81);
+            label15.Location = new Point(239, 82);
             label15.Name = "label15";
             label15.Size = new Size(90, 20);
             label15.TabIndex = 26;
             label15.Text = "Salario Base";
             // 
-            // textBox4
+            // BaseSalaryTb
             // 
-            textBox4.Location = new Point(400, 104);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(121, 23);
-            textBox4.TabIndex = 25;
+            BaseSalaryTb.Enabled = false;
+            BaseSalaryTb.Location = new Point(238, 106);
+            BaseSalaryTb.Name = "BaseSalaryTb";
+            BaseSalaryTb.Size = new Size(111, 23);
+            BaseSalaryTb.TabIndex = 25;
             // 
             // label13
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label13.ForeColor = Color.Black;
-            label13.Location = new Point(354, 135);
+            label13.Location = new Point(153, 137);
             label13.Name = "label13";
             label13.Size = new Size(136, 20);
             label13.TabIndex = 21;
             label13.Text = "Fecha Contratacion";
             // 
-            // dateTimePicker2
+            // SalDate
             // 
-            dateTimePicker2.Location = new Point(354, 161);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(230, 23);
-            dateTimePicker2.TabIndex = 20;
+            SalDate.Location = new Point(153, 163);
+            SalDate.Name = "SalDate";
+            SalDate.Size = new Size(230, 23);
+            SalDate.TabIndex = 20;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(235, 135);
+            label9.Location = new Point(480, 80);
             label9.Name = "label9";
             label9.Size = new Size(44, 20);
             label9.TabIndex = 13;
@@ -316,7 +409,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(130, 135);
+            label8.Location = new Point(10, 136);
             label8.Name = "label8";
             label8.Size = new Size(61, 20);
             label8.TabIndex = 10;
@@ -327,18 +420,19 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(282, 81);
+            label7.Location = new Point(120, 82);
             label7.Name = "label7";
             label7.Size = new Size(64, 20);
             label7.TabIndex = 9;
             label7.Text = "Nombre";
             // 
-            // textBox1
+            // EmpNameTb
             // 
-            textBox1.Location = new Point(256, 104);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(113, 23);
-            textBox1.TabIndex = 1;
+            EmpNameTb.Enabled = false;
+            EmpNameTb.Location = new Point(94, 107);
+            EmpNameTb.Name = "EmpNameTb";
+            EmpNameTb.Size = new Size(113, 23);
+            EmpNameTb.TabIndex = 1;
             // 
             // panel2
             // 
@@ -510,6 +604,21 @@
             pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;
             // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
             // Salario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -531,7 +640,7 @@
             Load += Salario_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SalaryDGV).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -558,13 +667,13 @@
         private PictureBox pictureBox6;
         private PictureBox pictureBox5;
         private Label label15;
-        private TextBox textBox4;
+        private TextBox BaseSalaryTb;
         private Label label13;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker SalDate;
         private Label label9;
         private Label label8;
         private Label label7;
-        private TextBox textBox1;
+        private TextBox EmpNameTb;
         private Panel panel2;
         private PictureBox pictureBox10;
         private Panel panel4;
@@ -581,14 +690,24 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
-        private Label label20;
         private Label label19;
-        private TextBox textBox6;
-        private TextBox textBox5;
+        private TextBox AdvanceTb;
+        private TextBox BonusTb;
         private Label label11;
-        private ComboBox comboBox4;
+        private ComboBox EmpIdCb;
         private TextBox textBox3;
-        private TextBox textBox2;
-        private DataGridView dataGridView1;
+        private TextBox BalanceTb;
+        private DataGridView SalaryDGV;
+        private ComboBox BonusIdCb;
+        private ComboBox AttNumCb;
+        private Label label10;
+        private TextBox PresTb;
+        private TextBox AbsTb;
+        private TextBox ExcusedTb;
+        private Label label12;
+        private Label label20;
+        private Label label14;
+        private PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

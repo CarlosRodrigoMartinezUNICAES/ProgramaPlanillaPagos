@@ -16,26 +16,26 @@ namespace ProgramaPlanillaPagos
         public Bono()
         {
             InitializeComponent();
-            ShowBono();
+            ShowBonus();
         }
-        SqlConnection Connection = new SqlConnection(@"Data Source=HP_PAVILION\MSSQLSERVER01;Initial Catalog=Planilla;Integrated Security=True");
+        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
         private void Clear()
         {
             BNameTb.Text = "";
             BAmountTb.Text = "";
 
-            key = 0;
+            Key = 0;
 
         }
-        private void ShowBono()
+        private void ShowBonus()
         {
             Connection.Open();
-            String Query = " Select * from BonoTb1";
+            String Query = " Select * from BonusTbl";
             SqlDataAdapter sda = new SqlDataAdapter(Query, Connection);
             SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
-            Bono_Load.DataSource = ds.Tables[0];
+            BonusDGV.DataSource = ds.Tables[0];
             Connection.Close();
         }
         private void Bono_Load(object sender, EventArgs e)
@@ -60,14 +60,14 @@ namespace ProgramaPlanillaPagos
                 try
                 {
                     Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Insert into BonoTbl(Bname,Bamt) values(@BN,@BA)", Connection);
+                    SqlCommand cmd = new SqlCommand("Insert into BonusTbl(Bname,Bamt) values(@BN,@BA)", Connection);
                     cmd.Parameters.AddWithValue("@BN", BNameTb.Text);
                     cmd.Parameters.AddWithValue("@BA", BAmountTb.Text);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Bono Guardado");
                     Connection.Close();
-                    ShowBono();
+                    ShowBonus();
                     Clear();
                 }
                 catch (Exception Ex)
@@ -105,14 +105,14 @@ namespace ProgramaPlanillaPagos
                 try
                 {
                     Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Update BonoTbl Set BName=@BN, BAmt=@BA where Bid=@Bkey", Connection);
+                    SqlCommand cmd = new SqlCommand("Update BonusTbl Set BName=@BN, BAmt=@BA where Bid=@Bkey", Connection);
                     cmd.Parameters.AddWithValue("@BN", BNameTb.Text);
                     cmd.Parameters.AddWithValue("@BA", BAmountTb.Text);
                     cmd.Parameters.AddWithValue("@BKey", Key);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Actualizar Bono");
                     Connection.Close();
-                    ShowBono();
+                    ShowBonus();
                     Clear();
                 }
                 catch (Exception Ex)
@@ -136,7 +136,7 @@ namespace ProgramaPlanillaPagos
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            if (key == 0)
+            if (Key == 0)
             {
                 MessageBox.Show("Seleciona el bono");
 
@@ -146,13 +146,13 @@ namespace ProgramaPlanillaPagos
                 try
                 {
                     Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Delete from BonoTbl Where BId=@BKey", Connection);
-                    cmd.Parameters.AddWithValue("@BKey", key);
+                    SqlCommand cmd = new SqlCommand("Delete from BonusTbl Where BId=@BKey", Connection);
+                    cmd.Parameters.AddWithValue("@BKey", Key);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Bono Eliminado");
                     Connection.Close();
-                    ShowBono();
+                    ShowBonus();
                 }
                 catch (Exception Ex)
                 {
@@ -160,4 +160,6 @@ namespace ProgramaPlanillaPagos
 
                 }
             }
+        }
+    }
 }

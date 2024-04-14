@@ -16,55 +16,55 @@ namespace ProgramaPlanillaPagos
         public Asistencia()
         {
             InitializeComponent();
-            ShowAsistencia();
+            ShowAttendance();
             GetEmpleados();
         }
-        SqlConnection Connection = new SqlConnection(@"Data Source=HP_PAVILION\MSSQLSERVER01;Initial Catalog=Planilla;Integrated Security=True");
+        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
         private void Clear()
         {
-            EmpleadoNombreTb.Text = "";
-            PresenteTb.Text = "";
-            AusenciaTb.Text = "";
-            PermisosTb.Text = "";
+            EmpNameTb.Text = "";
+            PresenceTb.Text = "";
+            AbsTb.Text = "";
+            ExcusedTb.Text = "";
 
-            key = 0;
+            Key = 0;
 
         }
-        private void ShowAsistencia()
+        private void ShowAttendance()
         {
             Connection.Open();
-            String Query = " Select * from AsistenciaTb1";
+            String Query = " Select * from AttendanceTbl";
             SqlDataAdapter sda = new SqlDataAdapter(Query, Connection);
             SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
-            AsistenciaDGV.DataSource = ds.Tables[0];
+            AttendanceDGV.DataSource = ds.Tables[0];
             Connection.Close();
         }
         private void GetEmpleados()
         {
             Connection.Open();
-            SqlCommand cmd = new SqlCommand("Select * from EmpleadosTbl", Connection);
+            SqlCommand cmd = new SqlCommand("Select * from EmployeeTbl", Connection);
             SqlDataReader Rdr;
             Rdr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("EmpId", typeof(int));
             dt.Load(Rdr);
-            EmpleadoCb.ValueMember = "EmpId";
-            EmpleadoCb.DataSource = dt;
+            EmpIdCb.ValueMember = "EmpId";
+            EmpIdCb.DataSource = dt;
             Connection.Close();
         }
         private void GetEmpleadosNombre()
         {
             Connection.Open();
-            String query = " Select * from EmpleadosTbl where EmpId " + EmpleadoCb.SelectedValue.ToString() + ""
+            String query = " Select * from EmployeeTbl where EmpId " + EmpIdCb.SelectedValue.ToString() + "";
             SqlCommand cmd = new SqlCommand(query, Connection);
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
-                EmpleadoNombreTb.Text = dr["EmpName"].ToString();
+                EmpNameTb.Text = dr["EmpName"].ToString();
             }
             Connection.Close();
         }
@@ -85,7 +85,7 @@ namespace ProgramaPlanillaPagos
 
         private void GuardarBoton_Click(object sender, EventArgs e)
         {
-            if (EmpNameTb.Text == "" || PresenteTb.Text == "" || PermisosTb.Text == "" || AusenciaTb.Text == "" )
+            if (EmpNameTb.Text == "" || PresenceTb.Text == "" || ExcusedTb.Text == "" || AbsTb.Text == "" )
             {
                 MessageBox.Show("Falta Informacion");
 
@@ -94,21 +94,20 @@ namespace ProgramaPlanillaPagos
             {
                 try
                 {
+                    string Period = AttDate.Value.Month + "-" + AttDate.Value.Year;
                     Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Insert into EmployeeTbl(EmpName,EmpGen,EmpDOB,EmpPhone,EmpAdd,EmpPos,JoinDate,EmpQual,EmpBasSal) values(@EN,@EG,@ED,@EP,@EA,@Epos,@JD,@EQ,@EBS)", Connection);
+                    SqlCommand cmd = new SqlCommand("Insert into AttendanceTbl(EmpId,EmpName,DayPres,DayAbs,DayExcused,Period) values(@EI,@EN,@DP,@DA,@DE,@Per)", Connection);
+                    cmd.Parameters.AddWithValue("@EI", EmpIdCb.Text);
                     cmd.Parameters.AddWithValue("@EN", EmpNameTb.Text);
-                    cmd.Parameters.AddWithValue("@EG", EmpGenCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@ED", EmpDOB.Value.Date);
-                    cmd.Parameters.AddWithValue("@EP", EmpPhoneTb.Text);
-                    cmd.Parameters.AddWithValue("@EA", EmpAddTb.Text);
-                    cmd.Parameters.AddWithValue("@EPos", EmpPosCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@JD", JDate.Value.Date);
-                    cmd.Parameters.AddWithValue("@EQ", EmpQualCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@EBS", EmpSalTb.Text);
+                    cmd.Parameters.AddWithValue("@DP", PresenceTb.Text);
+                    cmd.Parameters.AddWithValue("@DA", AbsTb.Text);
+                    cmd.Parameters.AddWithValue("@DE", ExcusedTb.Text);
+                    cmd.Parameters.AddWithValue("@Per", Period);
+                   
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Empleados Guardados");
+                    MessageBox.Show("Asistencia Guardada");
                     Connection.Close();
-                    ShowEmployee();
+                    ShowAttendance();
                     Clear();
                 }
                 catch (Exception Ex)
@@ -119,13 +118,65 @@ namespace ProgramaPlanillaPagos
 
             }
         }
-        int key = 0;
 
-        private void AsistenciaDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void EditarBoton_Click(object sender, EventArgs e)
         {
+            if (EmpNameTb.Text == "" || PresenceTb.Text == "" || ExcusedTb.Text == "" || AbsTb.Text == "")
+            {
+                MessageBox.Show("Falta Informacion");
 
+            }
+            else
+            {
+                try
+                {
+                    string Period = AttDate.Value.Month + "-" + AttDate.Value.Year;
+                    Connection.Open();
+                    SqlCommand cmd = new SqlCommand("Update AttendanceTbl Set EmpId=@EI,EmpName=@EN,DayPres=@DP,DayAbs=@DA,DayExcused=@DE,Period=@Per where AttNum=@AttKey", Connection);
+                    cmd.Parameters.AddWithValue("@EI", EmpIdCb.Text);
+                    cmd.Parameters.AddWithValue("@EN", EmpNameTb.Text);
+                    cmd.Parameters.AddWithValue("@DP", PresenceTb.Text);
+                    cmd.Parameters.AddWithValue("@DA", AbsTb.Text);
+                    cmd.Parameters.AddWithValue("@DE", ExcusedTb.Text);
+                    cmd.Parameters.AddWithValue("@Per", Period);
+                    cmd.Parameters.AddWithValue("@AttKey", Key);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Asistencia Actualizada");
+                    Connection.Close();
+                    ShowAttendance();
+                    Clear();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+
+                }
+
+            }
         }
-        private void EmpleadoCb_SelectionChangeCommitted(object sender, EventArgs e)
+
+        int Key = 0;
+
+        private void AttendanceDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EmpNameTb.Text = AttendanceDGV.SelectedRows[0].Cells[2].Value.ToString();
+            EmpIdCb.SelectedItem = AttendanceDGV.SelectedRows[0].Cells[1].Value.ToString();
+            PresenceTb.Text = AttendanceDGV.SelectedRows[0].Cells[3].Value.ToString();
+            AbsTb.Text = AttendanceDGV.SelectedRows[0].Cells[4].Value.ToString();
+            ExcusedTb.Text = AttendanceDGV.SelectedRows[0].Cells[5].Value.ToString();
+            AttDate.Text = AttendanceDGV.SelectedRows[0].Cells[3].Value.ToString();
+            
+            if (EmpNameTb.Text == "")
+            {
+                Key = 0;
+            }
+            else
+            {
+                Key = Convert.ToInt32(AttendanceDGV.SelectedRows[0].Cells[0].Value.ToString());
+            }
+        }
+        private void EmpIdCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
             GetEmpleadosNombre();
         }

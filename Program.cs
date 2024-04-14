@@ -9,10 +9,10 @@ namespace ProgramaPlanillaPagos
         static void Main()
         {
             // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // see ht tps://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new Empleados());
+            Application.Run(new Asistencia());
         }
     }
 }

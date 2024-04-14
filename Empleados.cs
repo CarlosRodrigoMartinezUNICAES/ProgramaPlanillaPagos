@@ -21,7 +21,7 @@ namespace ProgramaPlanillaPagos
             ShowEmployee();
         }
 
-        
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -42,38 +42,39 @@ namespace ProgramaPlanillaPagos
 
         }
 
-        SqlConnection Connection = new SqlConnection (@"Data Source=HP_PAVILION\MSSQLSERVER01;Initial Catalog=Planilla;Integrated Security=True");
+        SqlConnection Connection = new SqlConnection(@"Data Source=HP_PAVILION\MSSQLSERVER01;Initial Catalog=Planilla;Integrated Security=True");
         private void Clear()
         {
             EmpNameTb.Text = "";
             EmpAddTb.Text = "";
             EmpPhoneTb.Text = "";
             EmpSalTb.Text = "";
-            EmpGenCb.SelectedIndex= 0;
-            EmpPosCb.SelectedIndex= 0;
-            EmpQualCb.SelectedIndex= 0;
+            EmpGenCb.SelectedIndex = 0;
+            EmpPosCb.SelectedIndex = 0;
+            EmpQualCb.SelectedIndex = 0;
             key = 0;
-            
+
         }
         private void ShowEmployee()
         {
-            Connection.Open ();
+            Connection.Open();
             String Query = " Select * from EmployeeTbl";
-            SqlDataAdapter sda = new SqlDataAdapter (Query, Connection);
-            SqlCommandBuilder Builder = new SqlCommandBuilder (sda);
+            SqlDataAdapter sda = new SqlDataAdapter(Query, Connection);
+            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
-            sda.Fill(ds);   
+            sda.Fill(ds);
             EmployeeDGV.DataSource = ds.Tables[0];
-            Connection.Close ();
+            Connection.Close();
         }
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-         if (EmpNameTb.Text == ""  || EmpPhoneTb.Text == "" || EmpGenCb.SelectedIndex == -1 || EmpAddTb.Text == "" || EmpSalTb.Text == "" || EmpQualCb.SelectedIndex == -1)
-         {
-           MessageBox.Show("Falta Informacion");
-        
-         }else
-         {
+            if (EmpNameTb.Text == "" || EmpPhoneTb.Text == "" || EmpGenCb.SelectedIndex == -1 || EmpAddTb.Text == "" || EmpSalTb.Text == "" || EmpQualCb.SelectedIndex == -1)
+            {
+                MessageBox.Show("Falta Informacion");
+
+            }
+            else
+            {
                 try
                 {
                     Connection.Open();
@@ -96,16 +97,16 @@ namespace ProgramaPlanillaPagos
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-                    
+
                 }
 
-         }
+            }
 
 
 
         }
 
-         
+
         private void label18_Click(object sender, EventArgs e)
         {
 
@@ -128,7 +129,7 @@ namespace ProgramaPlanillaPagos
             JDate.Text = EmployeeDGV.SelectedRows[0].Cells[7].Value.ToString();
             EmpQualCb.SelectedItem = EmployeeDGV.SelectedRows[0].Cells[8].Value.ToString();
             EmpSalTb.Text = EmployeeDGV.SelectedRows[0].Cells[9].Value.ToString();
-            if(EmpNameTb.Text=="")
+            if (EmpNameTb.Text == "")
             {
                 key = 0;
             }
@@ -137,9 +138,9 @@ namespace ProgramaPlanillaPagos
                 key = Convert.ToInt32(EmployeeDGV.SelectedRows[0].Cells[0].Value.ToString());
             }
 
-            
-            
-              
+
+
+
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
@@ -182,7 +183,7 @@ namespace ProgramaPlanillaPagos
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            if (key== 0 )
+            if (key == 0)
             {
                 MessageBox.Show("Falta Informacion");
 
@@ -194,7 +195,7 @@ namespace ProgramaPlanillaPagos
                     Connection.Open();
                     SqlCommand cmd = new SqlCommand("Delete from EmployeeTbl Where EmpId=@EmpKey", Connection);
                     cmd.Parameters.AddWithValue("@EmpKey", key);
-                  
+
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Empleado Eliminado");
                     Connection.Close();
@@ -209,6 +210,20 @@ namespace ProgramaPlanillaPagos
             }
         }
 
-       
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Bono Obj = new Bono();
+            Obj.Show();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EmpGenCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
     }
 }

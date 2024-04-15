@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Diagnostics.PerformanceData;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.ComponentModel.Design.Serialization;
 
 namespace ProgramaPlanillaPagos
 {
@@ -42,7 +32,7 @@ namespace ProgramaPlanillaPagos
 
         }
 
-        SqlConnection Connection = new SqlConnection(@"Data Source=SPARTAN117\SQLSERVER;Initial Catalog=Planilla;Integrated Security=True");
+        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
         private void Clear()
         {
             EmpNameTb.Text = "";

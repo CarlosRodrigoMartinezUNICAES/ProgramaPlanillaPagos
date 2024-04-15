@@ -328,7 +328,6 @@
             label1.Size = new Size(71, 32);
             label1.TabIndex = 0;
             label1.Text = "Inicio";
-            label1.Click += label1_Click;
             // 
             // pictureBox1
             // 
@@ -418,7 +417,6 @@
             Name = "Principal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
-            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();

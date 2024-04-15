@@ -284,6 +284,7 @@
             BalanceTb.Name = "BalanceTb";
             BalanceTb.Size = new Size(121, 23);
             BalanceTb.TabIndex = 37;
+            BalanceTb.TextChanged += BalanceTb_TextChanged;
             // 
             // EmpIdCb
             // 
@@ -673,7 +674,6 @@
             Name = "Salario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Salario";
-            Load += Salario_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)SalaryDGV).EndInit();

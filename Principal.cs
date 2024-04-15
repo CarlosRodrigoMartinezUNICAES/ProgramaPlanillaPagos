@@ -1,6 +1,5 @@
 using System.Data;
 using System.Data.SqlClient;
-using static Guna.UI2.Native.WinApi;
 
 namespace ProgramaPlanillaPagos
 {
@@ -14,7 +13,9 @@ namespace ProgramaPlanillaPagos
             SumSalary();
             SumBonus();
         }
-        SqlConnection Connection = new SqlConnection(@"Data Source=SPARTAN117\SQLSERVER;Initial Catalog=Planilla;Integrated Security=True");
+
+        private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+
         private void CountEmployees()
         {
             Connection.Open();
@@ -24,6 +25,7 @@ namespace ProgramaPlanillaPagos
             EmpLbl.Text = dt.Rows[0][0].ToString();
             Connection.Close();
         }
+
         private void CountManagers()
         {
             string Pos = "Manager";
@@ -34,6 +36,7 @@ namespace ProgramaPlanillaPagos
             ManagerLbl.Text = dt.Rows[0][0].ToString();
             Connection.Close();
         }
+
         private void SumSalary()
         {
             Connection.Open();
@@ -43,6 +46,7 @@ namespace ProgramaPlanillaPagos
             SalaryLbl.Text = "$ " + dt.Rows[0][0].ToString();
             Connection.Close();
         }
+
         private void SumBonus()
         {
             Connection.Open();
@@ -52,34 +56,13 @@ namespace ProgramaPlanillaPagos
             BonusLbl.Text = "$ " + dt.Rows[0][0].ToString();
             Connection.Close();
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void label8_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label9_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)

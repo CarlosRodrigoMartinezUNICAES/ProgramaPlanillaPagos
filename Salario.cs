@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ProgramaPlanillaPagos
 {
@@ -21,7 +13,7 @@ namespace ProgramaPlanillaPagos
             GetBonus();
             ShowSalary();
         }
-        SqlConnection Connection = new SqlConnection(@"Data Source=SPARTAN117\SQLSERVER;Initial Catalog=Planilla;Integrated Security=True");
+        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
         private void Clear()
         {
             EmpNameTb.Text = "";
@@ -116,7 +108,7 @@ namespace ProgramaPlanillaPagos
         private void GetBonusAmt()
         {
             Connection.Open();
-            String query = "Select * from BonusTbl where BName= ' " + BonusIdCb.SelectedValue.ToString() + "'";
+            String query = "Select * from BonusTbl where BName= '" + BonusIdCb.SelectedValue.ToString() + "'";
             SqlCommand cmd = new SqlCommand(query, Connection);
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -139,11 +131,6 @@ namespace ProgramaPlanillaPagos
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Salario_Load(object sender, EventArgs e)
         {
 
         }
@@ -240,7 +227,7 @@ namespace ProgramaPlanillaPagos
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            if (SalaryDGV.SelectedRows.Count > 1)
+            if (SalaryDGV.SelectedRows.Count > 0)
             {
 
                 e.Graphics.DrawString("Empresa Carlos Ltd", new Font("Arial", 12, FontStyle.Bold), Brushes.Red, new Point(160, 25));
@@ -316,6 +303,11 @@ namespace ProgramaPlanillaPagos
             Bono Obj = new Bono();
             Obj.Show();
             this.Hide();
+        }
+
+        private void BalanceTb_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

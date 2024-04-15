@@ -18,7 +18,7 @@
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -118,6 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox10.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAARkAAAC7CAYAAABRs+pGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAABoRJREFUeF7t2k2ObmUVBeBqYCJGO+jtk3vHgMBQNDICNQ5CYUL4Q0IicxDRASAz
+        gB6hfHflrJ26mw+9xbbnc5InWe85q6q58v3d3d/f33SuN45fHx8enx9fH/UAoPagdqH2oXbijVs7Ur59
+        4+7uh8fvjy+Px/8U4LvUXvzheP1bm/LS4e7u+fG3ow7fHB8d7x0vjh887gL/v2oPrl2offjLUXtRDz49
+        nr/UffRHNTBfHHX45/Hu4yLAdznXO9du1KF25EU/uwr1FimvYD45fpICwKuo3Tj+etShXtE8vHXKw/oM
+        pkItkYEBvpfaj+Ozow7vX/cevkWqD23qPZW3SMDKud6+9uSr42d1o75+qicf3foDgKc615+uXfltHep7
+        7jq8d6sM8FTn+uW1KzU2Dz+oqUN/Ggywca43r135Vx3yS16/gwH+J8712rUrtS8P4dy/XQb4PrItHWYB
+        YCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2
+        si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb
+        0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0d
+        ZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEW
+        ADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFg
+        I9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADay
+        LR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vS
+        YRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1m
+        AWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYA
+        NrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj
+        29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrIt
+        HWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29Jh
+        FgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYB
+        YCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2
+        si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb
+        0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0d
+        ZgFgI9vSYRYANrItHWYBYCPb0mEWADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEW
+        ADayLR1mAWAj29JhFgA2si0dZgFgI9vSYRYANrItHWYBYCPb0mEWADayLRW+vsJrt4oAT1V7cu1K7cvd
+        59fh+a0ywFOd681rV76owx+vw69ulQGe6ly/uHblz3X4TQ63ygBPda68ePldHX56fHl8c7x96w8AXtW5
+        3rr25KvjWW6+f1T47Pjx/COAV1H7cfz9qMMHD/euB68fNTB1+PgwNMCT1G5c+1GHfxw/erj/qPDiqE+C
+        61CD8/M8A/hPzlVvkT496lA78qKfjWINTV7R1Huq+vCmPiWur6P8jgZ4UHtw7ULtw4dH7UU9qFcwPTAP
+        3ceHhxvnJc7xwVEf2tQNgP+m9qJ24+Et0kubMm/EuZ4d9fVTfc9dL3/yy2CA2oPahdqH2olnt3bk/v7+
+        7t/eDnkJyyfq8wAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAARkAAAC7CAYAAABRs+pGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -186,7 +220,7 @@
         7t/eDnkJyyfq8wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pictureBox10.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ExitBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAVtJREFUSEvt
         VdF1wzAIBLl//dEIHSEjdISO0M06QkfICB4ho6R3gGxJseLa37n3eJYE3NlAFHnhKC4iOouk+2JJ8JS7

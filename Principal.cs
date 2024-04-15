@@ -1,3 +1,4 @@
+using System.Data;
 using System.Data.SqlClient;
 
 namespace ProgramaPlanillaPagos
@@ -7,8 +8,49 @@ namespace ProgramaPlanillaPagos
         public Principal()
         {
             InitializeComponent();
+            CountEmployees();
+            CountManagers();
+            SumSalary();
+            SumBonus();
         }
-
+        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+        private void CountEmployees()
+        {
+            Connection.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from EmployeeTbl", Connection);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            EmpLbl.Text = dt.Rows[0][0].ToString();
+            Connection.Close();
+        }
+        private void CountManagers()
+        {
+            string Pos = "Manager";
+            Connection.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from EmployeeTbl where EmpPos='"+Pos+"'", Connection);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            ManagerLbl.Text = dt.Rows[0][0].ToString();
+            Connection.Close();
+        }
+        private void SumSalary()
+        {
+            Connection.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("Select Sum(EmpBalance) from SalaryTbl", Connection);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            SalaryLbl.Text = "$ " +dt.Rows[0][0].ToString();
+            Connection.Close();
+        }
+        private void SumBonus()
+        {
+            Connection.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("Select Sum(EmpBonus) from SalaryTbl", Connection);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            BonusLbl.Text = "$ " + dt.Rows[0][0].ToString();
+            Connection.Close();
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -41,7 +83,7 @@ namespace ProgramaPlanillaPagos
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }

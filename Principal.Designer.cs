@@ -30,21 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             panel1 = new Panel();
-            label17 = new Label();
-            label16 = new Label();
+            BonusLbl = new Label();
+            SalaryLbl = new Label();
             label14 = new Label();
             label13 = new Label();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             panel3 = new Panel();
-            label11 = new Label();
-            label12 = new Label();
-            label9 = new Label();
+            ManagerLbl = new Label();
             label10 = new Label();
-            label8 = new Label();
+            EmpLbl = new Label();
             label7 = new Label();
             panel2 = new Panel();
-            pictureBox10 = new PictureBox();
+            ExitBtn = new PictureBox();
             panel4 = new Panel();
             label6 = new Label();
             label5 = new Label();
@@ -59,12 +57,14 @@
             pictureBox7 = new PictureBox();
             pictureBox8 = new PictureBox();
             pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
+            label8 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ExitBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -72,13 +72,16 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(label17);
-            panel1.Controls.Add(label16);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(pictureBox10);
+            panel1.Controls.Add(BonusLbl);
+            panel1.Controls.Add(SalaryLbl);
             panel1.Controls.Add(label14);
             panel1.Controls.Add(label13);
             panel1.Controls.Add(pictureBox6);
@@ -91,27 +94,27 @@
             panel1.Size = new Size(809, 569);
             panel1.TabIndex = 0;
             // 
-            // label17
+            // BonusLbl
             // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label17.ForeColor = Color.Black;
-            label17.Location = new Point(524, 275);
-            label17.Name = "label17";
-            label17.Size = new Size(188, 25);
-            label17.TabIndex = 7;
-            label17.Text = "Cantidad bonos total";
+            BonusLbl.AutoSize = true;
+            BonusLbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            BonusLbl.ForeColor = Color.Black;
+            BonusLbl.Location = new Point(524, 275);
+            BonusLbl.Name = "BonusLbl";
+            BonusLbl.Size = new Size(188, 25);
+            BonusLbl.TabIndex = 7;
+            BonusLbl.Text = "Cantidad bonos total";
             // 
-            // label16
+            // SalaryLbl
             // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label16.ForeColor = Color.Black;
-            label16.Location = new Point(224, 275);
-            label16.Name = "label16";
-            label16.Size = new Size(192, 25);
-            label16.TabIndex = 6;
-            label16.Text = "Cantidad salario total";
+            SalaryLbl.AutoSize = true;
+            SalaryLbl.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            SalaryLbl.ForeColor = Color.Black;
+            SalaryLbl.Location = new Point(224, 275);
+            SalaryLbl.Name = "SalaryLbl";
+            SalaryLbl.Size = new Size(192, 25);
+            SalaryLbl.TabIndex = 6;
+            SalaryLbl.Text = "Cantidad salario total";
             // 
             // label14
             // 
@@ -157,11 +160,9 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(label11);
-            panel3.Controls.Add(label12);
-            panel3.Controls.Add(label9);
+            panel3.Controls.Add(ManagerLbl);
             panel3.Controls.Add(label10);
-            panel3.Controls.Add(label8);
+            panel3.Controls.Add(EmpLbl);
             panel3.Controls.Add(label7);
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(0, 66);
@@ -169,40 +170,17 @@
             panel3.Size = new Size(176, 503);
             panel3.TabIndex = 1;
             // 
-            // label11
+            // ManagerLbl
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.ForeColor = Color.Black;
-            label11.Location = new Point(10, 213);
-            label11.Name = "label11";
-            label11.Size = new Size(72, 21);
-            label11.TabIndex = 5;
-            label11.Text = "Cantidad";
-            label11.Click += label11_Click;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.ForeColor = Color.Black;
-            label12.Location = new Point(10, 176);
-            label12.Name = "label12";
-            label12.Size = new Size(116, 21);
-            label12.TabIndex = 4;
-            label12.Text = "Cualificaciones:";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.ForeColor = Color.Black;
-            label9.Location = new Point(11, 128);
-            label9.Name = "label9";
-            label9.Size = new Size(72, 21);
-            label9.TabIndex = 3;
-            label9.Text = "Cantidad";
-            label9.Click += label9_Click;
+            ManagerLbl.AutoSize = true;
+            ManagerLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ManagerLbl.ForeColor = Color.Black;
+            ManagerLbl.Location = new Point(11, 128);
+            ManagerLbl.Name = "ManagerLbl";
+            ManagerLbl.Size = new Size(72, 21);
+            ManagerLbl.TabIndex = 3;
+            ManagerLbl.Text = "Cantidad";
+            ManagerLbl.Click += label9_Click;
             // 
             // label10
             // 
@@ -215,17 +193,17 @@
             label10.TabIndex = 2;
             label10.Text = "Gerentes:";
             // 
-            // label8
+            // EmpLbl
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.ForeColor = Color.Black;
-            label8.Location = new Point(11, 49);
-            label8.Name = "label8";
-            label8.Size = new Size(72, 21);
-            label8.TabIndex = 1;
-            label8.Text = "Cantidad";
-            label8.Click += label8_Click;
+            EmpLbl.AutoSize = true;
+            EmpLbl.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            EmpLbl.ForeColor = Color.Black;
+            EmpLbl.Location = new Point(11, 49);
+            EmpLbl.Name = "EmpLbl";
+            EmpLbl.Size = new Size(72, 21);
+            EmpLbl.TabIndex = 1;
+            EmpLbl.Text = "Cantidad";
+            EmpLbl.Click += label8_Click;
             // 
             // label7
             // 
@@ -240,7 +218,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(pictureBox10);
+            panel2.Controls.Add(ExitBtn);
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label5);
@@ -254,16 +232,16 @@
             panel2.Size = new Size(809, 66);
             panel2.TabIndex = 0;
             // 
-            // pictureBox10
+            // ExitBtn
             // 
-            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
-            pictureBox10.Location = new Point(774, 0);
-            pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(35, 36);
-            pictureBox10.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox10.TabIndex = 8;
-            pictureBox10.TabStop = false;
-            pictureBox10.Click += pictureBox10_Click;
+            ExitBtn.Image = (Image)resources.GetObject("ExitBtn.Image");
+            ExitBtn.Location = new Point(774, 0);
+            ExitBtn.Name = "ExitBtn";
+            ExitBtn.Size = new Size(35, 36);
+            ExitBtn.SizeMode = PictureBoxSizeMode.Zoom;
+            ExitBtn.TabIndex = 8;
+            ExitBtn.TabStop = false;
+            ExitBtn.Click += pictureBox10_Click;
             // 
             // panel4
             // 
@@ -410,6 +388,27 @@
             pictureBox9.TabIndex = 7;
             pictureBox9.TabStop = false;
             // 
+            // pictureBox10
+            // 
+            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
+            pictureBox10.Location = new Point(182, 521);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(615, 45);
+            pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox10.TabIndex = 8;
+            pictureBox10.TabStop = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(316, 532);
+            label8.Name = "label8";
+            label8.Size = new Size(348, 25);
+            label8.TabIndex = 9;
+            label8.Text = "Sistema de Planillas de Pago Version 1.0";
+            // 
             // Principal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -437,7 +436,7 @@
             panel3.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ExitBtn).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -445,6 +444,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ResumeLayout(false);
         }
 
@@ -462,23 +462,23 @@
         private Label label5;
         private Label label4;
         private Label label3;
-        private Label label8;
+        private Label EmpLbl;
         private Label label7;
-        private Label label12;
-        private Label label9;
+        private Label ManagerLbl;
         private Label label10;
-        private Label label11;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
         private PictureBox pictureBox4;
         private PictureBox pictureBox7;
         private PictureBox pictureBox8;
         private PictureBox pictureBox9;
-        private Label label17;
-        private Label label16;
+        private Label BonusLbl;
+        private Label SalaryLbl;
         private Label label14;
         private Label label13;
         private Panel panel4;
+        private PictureBox ExitBtn;
+        private Label label8;
         private PictureBox pictureBox10;
     }
 }

@@ -13,7 +13,9 @@ namespace ProgramaPlanillaPagos
             GetBonus();
             ShowSalary();
         }
-        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+
+        private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+
         private void Clear()
         {
             EmpNameTb.Text = "";
@@ -22,8 +24,8 @@ namespace ProgramaPlanillaPagos
             ExcusedTb.Text = "";
 
             //Key = 0;
-
         }
+
         private void ShowSalary()
         {
             Connection.Open();
@@ -35,6 +37,7 @@ namespace ProgramaPlanillaPagos
             SalaryDGV.DataSource = ds.Tables[0];
             Connection.Close();
         }
+
         private void GetEmpleados()
         {
             Connection.Open();
@@ -48,6 +51,7 @@ namespace ProgramaPlanillaPagos
             EmpIdCb.DataSource = dt;
             Connection.Close();
         }
+
         private void GetBonus()
         {
             Connection.Open();
@@ -61,6 +65,7 @@ namespace ProgramaPlanillaPagos
             BonusIdCb.DataSource = dt;
             Connection.Close();
         }
+
         private void GetAttendance()
         {
             Connection.Open();
@@ -74,6 +79,7 @@ namespace ProgramaPlanillaPagos
             AttNumCb.DataSource = dt;
             Connection.Close();
         }
+
         private void GetAttendanceData()
         {
             Connection.Open();
@@ -90,6 +96,7 @@ namespace ProgramaPlanillaPagos
             }
             Connection.Close();
         }
+
         private void GetEmpleadosNombre()
         {
             Connection.Open();
@@ -105,6 +112,7 @@ namespace ProgramaPlanillaPagos
             }
             Connection.Close();
         }
+
         private void GetBonusAmt()
         {
             Connection.Open();
@@ -120,29 +128,25 @@ namespace ProgramaPlanillaPagos
             }
             Connection.Close();
         }
+
         private void label9_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label20_Click(object sender, EventArgs e)
         {
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void EmpIdCb_SelectedValueChanged(object sender, EventArgs e)
         {
-
         }
 
         private void EmpIdCb_SelectionChangeCommitted(object sender, EventArgs e)
@@ -160,15 +164,15 @@ namespace ProgramaPlanillaPagos
         {
             GetAttendanceData();
         }
-        int DailyBase = 0, Total = 0, Pres = 0, Abs = 0, Exc = 0;
-        double GrdTot = 0, TotTax = 0;
+
+        private int DailyBase = 0, Total = 0, Pres = 0, Abs = 0, Exc = 0;
+        private double GrdTot = 0, TotTax = 0;
 
         private void label18_Click(object sender, EventArgs e)
         {
             if (BaseSalaryTb.Text == "" || BonusTb.Text == "" || AdvanceTb.Text == "")
             {
                 MessageBox.Show("Seleccione el empleado");
-
             }
             else
             {
@@ -191,7 +195,6 @@ namespace ProgramaPlanillaPagos
             if (EmpNameTb.Text == "" || PresTb.Text == "" || AbsTb.Text == "" || ExcusedTb.Text == "")
             {
                 MessageBox.Show("Falta Informacion");
-
             }
             else
             {
@@ -217,19 +220,14 @@ namespace ProgramaPlanillaPagos
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-
                 }
-
             }
         }
-
-
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             if (SalaryDGV.SelectedRows.Count > 0)
             {
-
                 e.Graphics.DrawString("Empresa Carlos Ltd", new Font("Arial", 12, FontStyle.Bold), Brushes.Red, new Point(160, 25));
                 e.Graphics.DrawString("Sistema de Planillas de Pago 1.0", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(125, 45));
 
@@ -261,8 +259,8 @@ namespace ProgramaPlanillaPagos
                 // Manejar el caso cuando no hay ninguna fila seleccionada
                 MessageBox.Show("No hay ninguna fila seleccionada para imprimir.");
             }
-
         }
+
         private void SalaryDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 500, 800);
@@ -307,7 +305,6 @@ namespace ProgramaPlanillaPagos
 
         private void BalanceTb_TextChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

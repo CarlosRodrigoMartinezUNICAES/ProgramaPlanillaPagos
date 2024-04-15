@@ -200,7 +200,6 @@
             ManagerLbl.Size = new Size(72, 21);
             ManagerLbl.TabIndex = 3;
             ManagerLbl.Text = "Cantidad";
-            ManagerLbl.Click += label9_Click;
             // 
             // label10
             // 
@@ -223,7 +222,6 @@
             EmpLbl.Size = new Size(72, 21);
             EmpLbl.TabIndex = 1;
             EmpLbl.Text = "Cantidad";
-            EmpLbl.Click += label8_Click;
             // 
             // label7
             // 

@@ -458,7 +458,6 @@
             EmpGenCb.Name = "EmpGenCb";
             EmpGenCb.Size = new Size(113, 23);
             EmpGenCb.TabIndex = 11;
-            EmpGenCb.SelectionChangeCommitted += EmpGenCb_SelectionChangeCommitted;
             // 
             // label8
             // 
@@ -569,7 +568,6 @@
             label2.Size = new Size(130, 32);
             label2.TabIndex = 1;
             label2.Text = "Empleados";
-            label2.Click += label2_Click;
             // 
             // label1
             // 

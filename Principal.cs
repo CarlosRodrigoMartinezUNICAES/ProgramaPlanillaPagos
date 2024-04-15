@@ -57,14 +57,6 @@ namespace ProgramaPlanillaPagos
             Connection.Close();
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-        }
-
         private void pictureBox10_Click(object sender, EventArgs e)
         {
             Application.Exit();

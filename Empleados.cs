@@ -11,28 +11,8 @@ namespace ProgramaPlanillaPagos
             ShowEmployee();
         }
 
+        private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Empleados_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
         private void Clear()
         {
             EmpNameTb.Text = "";
@@ -43,8 +23,8 @@ namespace ProgramaPlanillaPagos
             EmpPosCb.SelectedIndex = 0;
             EmpQualCb.SelectedIndex = 0;
             key = 0;
-
         }
+
         private void ShowEmployee()
         {
             Connection.Open();
@@ -56,12 +36,12 @@ namespace ProgramaPlanillaPagos
             EmployeeDGV.DataSource = ds.Tables[0];
             Connection.Close();
         }
+
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             if (EmpNameTb.Text == "" || EmpPhoneTb.Text == "" || EmpGenCb.SelectedIndex == -1 || EmpAddTb.Text == "" || EmpSalTb.Text == "" || EmpQualCb.SelectedIndex == -1)
             {
                 MessageBox.Show("Falta Informacion");
-
             }
             else
             {
@@ -87,19 +67,8 @@ namespace ProgramaPlanillaPagos
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-
                 }
-
             }
-
-
-
-        }
-
-
-        private void label18_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
@@ -107,7 +76,8 @@ namespace ProgramaPlanillaPagos
             Close();
         }
 
-        int key = 0;
+        private int key = 0;
+
         private void EmployeeDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             EmpNameTb.Text = EmployeeDGV.SelectedRows[0].Cells[1].Value.ToString();
@@ -127,10 +97,6 @@ namespace ProgramaPlanillaPagos
             {
                 key = Convert.ToInt32(EmployeeDGV.SelectedRows[0].Cells[0].Value.ToString());
             }
-
-
-
-
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
@@ -138,7 +104,6 @@ namespace ProgramaPlanillaPagos
             if (EmpNameTb.Text == "" || EmpPhoneTb.Text == "" || EmpGenCb.SelectedIndex == -1 || EmpAddTb.Text == "" || EmpSalTb.Text == "" || EmpQualCb.SelectedIndex == -1)
             {
                 MessageBox.Show("Falta Informacion");
-
             }
             else
             {
@@ -165,9 +130,7 @@ namespace ProgramaPlanillaPagos
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-
                 }
-
             }
         }
 
@@ -176,7 +139,6 @@ namespace ProgramaPlanillaPagos
             if (key == 0)
             {
                 MessageBox.Show("Falta Informacion");
-
             }
             else
             {
@@ -194,9 +156,7 @@ namespace ProgramaPlanillaPagos
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-
                 }
-
             }
         }
 
@@ -205,16 +165,6 @@ namespace ProgramaPlanillaPagos
             Bono Obj = new Bono();
             Obj.Show();
             this.Hide();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EmpGenCb_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-
         }
 
         private void label6_Click(object sender, EventArgs e)

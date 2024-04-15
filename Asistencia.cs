@@ -11,7 +11,9 @@ namespace ProgramaPlanillaPagos
             ShowAttendance();
             GetEmpleados();
         }
-        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+
+        private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+
         private void Clear()
         {
             EmpNameTb.Text = "";
@@ -20,8 +22,8 @@ namespace ProgramaPlanillaPagos
             ExcusedTb.Text = "";
 
             Key = 0;
-
         }
+
         private void ShowAttendance()
         {
             Connection.Open();
@@ -33,6 +35,7 @@ namespace ProgramaPlanillaPagos
             AttendanceDGV.DataSource = ds.Tables[0];
             Connection.Close();
         }
+
         private void GetEmpleados()
         {
             Connection.Open();
@@ -46,6 +49,7 @@ namespace ProgramaPlanillaPagos
             EmpIdCb.DataSource = dt;
             Connection.Close();
         }
+
         private void GetEmpleadosNombre()
         {
             Connection.Open();
@@ -61,17 +65,11 @@ namespace ProgramaPlanillaPagos
             Connection.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void GuardarBoton_Click(object sender, EventArgs e)
         {
             if (EmpNameTb.Text == "" || PresenceTb.Text == "" || ExcusedTb.Text == "" || AbsTb.Text == "")
             {
                 MessageBox.Show("Falta Informacion");
-
             }
             else
             {
@@ -96,9 +94,7 @@ namespace ProgramaPlanillaPagos
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-
                 }
-
             }
         }
 
@@ -107,7 +103,6 @@ namespace ProgramaPlanillaPagos
             if (EmpNameTb.Text == "" || PresenceTb.Text == "" || ExcusedTb.Text == "" || AbsTb.Text == "")
             {
                 MessageBox.Show("Falta Informacion");
-
             }
             else
             {
@@ -133,13 +128,11 @@ namespace ProgramaPlanillaPagos
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-
                 }
-
             }
         }
 
-        int Key = 0;
+        private int Key = 0;
 
         private void AttendanceDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -159,6 +152,7 @@ namespace ProgramaPlanillaPagos
                 Key = Convert.ToInt32(AttendanceDGV.SelectedRows[0].Cells[0].Value.ToString());
             }
         }
+
         private void EmpIdCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
             GetEmpleadosNombre();

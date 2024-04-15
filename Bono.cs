@@ -10,15 +10,16 @@ namespace ProgramaPlanillaPagos
             InitializeComponent();
             ShowBonus();
         }
-        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+
+        private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+
         private void Clear()
         {
             BNameTb.Text = "";
             BAmountTb.Text = "";
-
             Key = 0;
-
         }
+
         private void ShowBonus()
         {
             Connection.Open();
@@ -30,22 +31,12 @@ namespace ProgramaPlanillaPagos
             BonusDGV.DataSource = ds.Tables[0];
             Connection.Close();
         }
-        private void Bono_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             if (BNameTb.Text == "" || BAmountTb.Text == "")
             {
                 MessageBox.Show("Falta Informacion");
-
             }
             else
             {
@@ -55,7 +46,6 @@ namespace ProgramaPlanillaPagos
                     SqlCommand cmd = new SqlCommand("Insert into BonusTbl(Bname,Bamt) values(@BN,@BA)", Connection);
                     cmd.Parameters.AddWithValue("@BN", BNameTb.Text);
                     cmd.Parameters.AddWithValue("@BA", BAmountTb.Text);
-
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Bono Guardado");
                     Connection.Close();
@@ -65,12 +55,12 @@ namespace ProgramaPlanillaPagos
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-
                 }
-
             }
         }
-        int Key = 0;
+
+        private int Key = 0;
+
         private void BonusDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             BNameTb.Text = BonusDGV.SelectedRows[0].Cells[1].Value.ToString();
@@ -90,7 +80,6 @@ namespace ProgramaPlanillaPagos
             if (BNameTb.Text == "" || BAmountTb.Text == "")
             {
                 MessageBox.Show("Falta Informacion");
-
             }
             else
             {
@@ -110,9 +99,7 @@ namespace ProgramaPlanillaPagos
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-
                 }
-
             }
         }
 
@@ -121,17 +108,11 @@ namespace ProgramaPlanillaPagos
             this.Hide();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             if (Key == 0)
             {
                 MessageBox.Show("Seleciona el bono");
-
             }
             else
             {
@@ -149,7 +130,6 @@ namespace ProgramaPlanillaPagos
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
-
                 }
             }
         }

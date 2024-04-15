@@ -1,5 +1,6 @@
 using System.Data;
 using System.Data.SqlClient;
+using static Guna.UI2.Native.WinApi;
 
 namespace ProgramaPlanillaPagos
 {
@@ -88,12 +89,28 @@ namespace ProgramaPlanillaPagos
 
         private void label6_Click(object sender, EventArgs e)
         {
-
+            Salario Obj = new Salario();
+            Obj.Show();
+            this.Hide();
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             Empleados Obj = new Empleados();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            Asistencia Obj = new Asistencia();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Bono Obj = new Bono();
             Obj.Show();
             this.Hide();
         }

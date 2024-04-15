@@ -85,7 +85,7 @@ namespace ProgramaPlanillaPagos
 
         private void GuardarBoton_Click(object sender, EventArgs e)
         {
-            if (EmpNameTb.Text == "" || PresenceTb.Text == "" || ExcusedTb.Text == "" || AbsTb.Text == "" )
+            if (EmpNameTb.Text == "" || PresenceTb.Text == "" || ExcusedTb.Text == "" || AbsTb.Text == "")
             {
                 MessageBox.Show("Falta Informacion");
 
@@ -103,7 +103,7 @@ namespace ProgramaPlanillaPagos
                     cmd.Parameters.AddWithValue("@DA", AbsTb.Text);
                     cmd.Parameters.AddWithValue("@DE", ExcusedTb.Text);
                     cmd.Parameters.AddWithValue("@Per", Period);
-                   
+
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Asistencia Guardada");
                     Connection.Close();
@@ -166,7 +166,7 @@ namespace ProgramaPlanillaPagos
             AbsTb.Text = AttendanceDGV.SelectedRows[0].Cells[4].Value.ToString();
             ExcusedTb.Text = AttendanceDGV.SelectedRows[0].Cells[5].Value.ToString();
             AttDate.Text = AttendanceDGV.SelectedRows[0].Cells[3].Value.ToString();
-            
+
             if (EmpNameTb.Text == "")
             {
                 Key = 0;
@@ -179,6 +179,39 @@ namespace ProgramaPlanillaPagos
         private void EmpIdCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
             GetEmpleadosNombre();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Salario Obj = new Salario();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Bono Obj = new Bono();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Empleados Obj = new Empleados();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Principal Obj = new Principal();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

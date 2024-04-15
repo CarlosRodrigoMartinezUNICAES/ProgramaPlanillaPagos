@@ -501,6 +501,7 @@
             pictureBox10.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox10.TabIndex = 8;
             pictureBox10.TabStop = false;
+            pictureBox10.Click += pictureBox10_Click;
             // 
             // panel4
             // 
@@ -531,6 +532,7 @@
             label5.Size = new Size(119, 32);
             label5.TabIndex = 4;
             label5.Text = "Asistencia";
+            label5.Click += label5_Click;
             // 
             // label3
             // 
@@ -542,6 +544,7 @@
             label3.Size = new Size(80, 32);
             label3.TabIndex = 2;
             label3.Text = "Bonos";
+            label3.Click += label3_Click;
             // 
             // label2
             // 
@@ -553,6 +556,7 @@
             label2.Size = new Size(130, 32);
             label2.TabIndex = 1;
             label2.Text = "Empleados";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -564,6 +568,7 @@
             label1.Size = new Size(71, 32);
             label1.TabIndex = 0;
             label1.Text = "Inicio";
+            label1.Click += label1_Click;
             // 
             // pictureBox9
             // 

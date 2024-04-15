@@ -42,7 +42,6 @@
             panel4 = new Panel();
             label6 = new Label();
             label5 = new Label();
-            label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -174,7 +173,6 @@
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label5);
-            panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
@@ -208,33 +206,24 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(658, 14);
+            label6.Location = new Point(512, 14);
             label6.Name = "label6";
             label6.Size = new Size(89, 32);
             label6.TabIndex = 5;
             label6.Text = "Planilla";
+            label6.Click += label6_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(511, 14);
+            label5.Location = new Point(375, 14);
             label5.Name = "label5";
             label5.Size = new Size(119, 32);
             label5.TabIndex = 4;
             label5.Text = "Asistencia";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = Color.Black;
-            label4.Location = new Point(374, 14);
-            label4.Name = "label4";
-            label4.Size = new Size(110, 32);
-            label4.TabIndex = 3;
-            label4.Text = "Adelanto";
+            label5.Click += label5_Click;
             // 
             // label3
             // 
@@ -258,6 +247,7 @@
             label2.Size = new Size(130, 32);
             label2.TabIndex = 1;
             label2.Text = "Empleados";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -269,6 +259,7 @@
             label1.Size = new Size(71, 32);
             label1.TabIndex = 0;
             label1.Text = "Inicio";
+            label1.Click += label1_Click;
             // 
             // pictureBox11
             // 
@@ -398,7 +389,6 @@
         private Panel panel4;
         private Label label6;
         private Label label5;
-        private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;

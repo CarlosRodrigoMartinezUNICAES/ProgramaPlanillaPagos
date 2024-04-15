@@ -161,5 +161,33 @@ namespace ProgramaPlanillaPagos
                 }
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Empleados Obj = new Empleados();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Principal Obj = new Principal();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            Asistencia Obj = new Asistencia();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Salario Obj = new Salario();
+            Obj.Show();
+            this.Hide();
+        }
     }
 }

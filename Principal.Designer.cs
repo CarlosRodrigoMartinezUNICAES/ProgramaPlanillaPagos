@@ -292,6 +292,7 @@
             label5.Size = new Size(119, 32);
             label5.TabIndex = 4;
             label5.Text = "Asistencia";
+            label5.Click += label5_Click;
             // 
             // label3
             // 
@@ -303,6 +304,7 @@
             label3.Size = new Size(80, 32);
             label3.TabIndex = 2;
             label3.Text = "Bonos";
+            label3.Click += label3_Click;
             // 
             // label2
             // 

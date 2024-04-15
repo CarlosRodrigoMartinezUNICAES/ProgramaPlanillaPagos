@@ -284,5 +284,38 @@ namespace ProgramaPlanillaPagos
                 printDocument1.Print();
             }
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            Asistencia Obj = new Asistencia();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Empleados Obj = new Empleados();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Principal Obj = new Principal();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Bono Obj = new Bono();
+            Obj.Show();
+            this.Hide();
+        }
     }
 }

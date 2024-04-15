@@ -85,7 +85,7 @@ namespace ProgramaPlanillaPagos
         private void GetAttendanceData()
         {
             Connection.Open();
-            String query = " Select * from AttendanceTbl where AttNum= " + AttNumCb.SelectedValue.ToString() + "";
+            String query = "Select * from AttendanceTbl Where AttNum= " + AttNumCb.SelectedValue.ToString() + "";
             SqlCommand cmd = new SqlCommand(query, Connection);
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -101,7 +101,7 @@ namespace ProgramaPlanillaPagos
         private void GetEmpleadosNombre()
         {
             Connection.Open();
-            String query = " Select * from EmployeeTbl where EmpId " + EmpIdCb.SelectedValue.ToString() + "";
+            String query = "SELECT * FROM EmployeeTbl WHERE EmpId=" + EmpIdCb.SelectedValue.ToString() + "";
             SqlCommand cmd = new SqlCommand(query, Connection);
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -116,7 +116,7 @@ namespace ProgramaPlanillaPagos
         private void GetBonusAmt()
         {
             Connection.Open();
-            String query = " Select * from BonusTbl where BName' " + BonusIdCb.SelectedValue.ToString() + "'";
+            String query = "Select * from BonusTbl where BName= ' " + BonusIdCb.SelectedValue.ToString() + "'";
             SqlCommand cmd = new SqlCommand(query, Connection);
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -188,10 +188,12 @@ namespace ProgramaPlanillaPagos
                 Pres = Convert.ToInt32(PresTb.Text);
                 Abs = Convert.ToInt32(AbsTb.Text);
                 Exc = Convert.ToInt32(ExcusedTb.Text);
-                DailyBase = Convert.ToInt32(BaseSalaryTb.Text) / 28;
+                DailyBase = Convert.ToInt32(BaseSalaryTb.Text) / 22;
                 Total = ((DailyBase) * Pres) + ((DailyBase / 2) * Exc) + ((DailyBase) * Pres);
-                double Tax = Total * 0.16;
-                TotTax = Total - Tax;
+                double ISSS = Total * 0.03;
+                double IVA = Total * 0.0725;
+                double Renta = Total * 0.1;
+                TotTax = Total - ISSS - IVA - Renta;
                 GrdTot = TotTax + Convert.ToInt32(BonusTb.Text);
                 BalanceTb.Text = "$ " + GrdTot;
             }
@@ -234,6 +236,46 @@ namespace ProgramaPlanillaPagos
             }
         }
 
+        
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            if (SalaryDGV.SelectedRows.Count > 1)
+            {
+
+                e.Graphics.DrawString("Empresa Carlos Ltd", new Font("Arial", 12, FontStyle.Bold), Brushes.Red, new Point(160, 25));
+                e.Graphics.DrawString("Sistema de Planillas de Pago 1.0", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(125, 45));
+
+                string SalNum = SalaryDGV.SelectedRows[0].Cells[0].Value.ToString();
+                string EmpId = SalaryDGV.SelectedRows[0].Cells[1].Value.ToString();
+                string EmpName = SalaryDGV.SelectedRows[0].Cells[2].Value.ToString();
+                string BasSal = SalaryDGV.SelectedRows[0].Cells[3].Value.ToString();
+                string Bonus = SalaryDGV.SelectedRows[0].Cells[4].Value.ToString();
+                string Advance = SalaryDGV.SelectedRows[0].Cells[5].Value.ToString();
+                string Tax = SalaryDGV.SelectedRows[0].Cells[6].Value.ToString();
+                string Balance = SalaryDGV.SelectedRows[0].Cells[7].Value.ToString();
+                string Period = SalaryDGV.SelectedRows[0].Cells[8].Value.ToString();
+
+                e.Graphics.DrawString("Numero de Salario: " + SalNum, new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(50, 100));
+                e.Graphics.DrawString("Id del empleado: " + EmpId, new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(50, 150));
+                e.Graphics.DrawString("Nombre del Empleado: " + EmpName, new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(250, 150));
+                e.Graphics.DrawString("Salario base: " + BasSal, new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(50, 180));
+                e.Graphics.DrawString("Bono: $ " + Bonus, new Font("Arial", 8, FontStyle.Bold), Brushes.Blue, new Point(50, 210));
+                e.Graphics.DrawString("Adelanto en salario: $ " + Advance, new Font("Arial", 8, FontStyle.Bold), Brushes.Blue, new Point(50, 240));
+                e.Graphics.DrawString("Impuesto (IVA+ISSS+Renta) : $ " + Tax, new Font("Arial", 8, FontStyle.Bold), Brushes.Blue, new Point(50, 270));
+                e.Graphics.DrawString("Total: $ " + Balance, new Font("Arial", 8, FontStyle.Bold), Brushes.Blue, new Point(50, 300));
+                e.Graphics.DrawString("Periodo: " + Period, new Font("Arial", 8, FontStyle.Bold), Brushes.Blue, new Point(50, 330));
+
+                e.Graphics.DrawString("Desarollado por estudiantes de UNICAES" + Period, new Font("Arial", 8, FontStyle.Bold), Brushes.Crimson, new Point(150, 420));
+                e.Graphics.DrawString("Version Final" + Period, new Font("Arial", 8, FontStyle.Bold), Brushes.Crimson, new Point(100, 435));
+            }
+            else
+            {
+                // Manejar el caso cuando no hay ninguna fila seleccionada
+                MessageBox.Show("No hay ninguna fila seleccionada para imprimir.");
+            }
+
+        }
         private void SalaryDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 500, 800);
@@ -241,35 +283,6 @@ namespace ProgramaPlanillaPagos
             {
                 printDocument1.Print();
             }
-        }
-
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawString("Empresa Carlos Ltd", new Font("Arial", 12, FontStyle.Bold), Brushes.Red, new Point(160, 25));
-            e.Graphics.DrawString("Sistema de Planillas de Pago 1.0", new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(125, 45));
-
-            string SalNum = SalaryDGV.SelectedRows[0].Cells[0].Value.ToString();
-            string EmpId = SalaryDGV.SelectedRows[0].Cells[1].Value.ToString();
-            string EmpName = SalaryDGV.SelectedRows[0].Cells[2].Value.ToString();
-            string BasSal = SalaryDGV.SelectedRows[0].Cells[3].Value.ToString();
-            string Bonus = SalaryDGV.SelectedRows[0].Cells[4].Value.ToString();
-            string Advance = SalaryDGV.SelectedRows[0].Cells[5].Value.ToString();
-            string Tax = SalaryDGV.SelectedRows[0].Cells[6].Value.ToString();
-            string Balance = SalaryDGV.SelectedRows[0].Cells[7].Value.ToString();
-            string Period = SalaryDGV.SelectedRows[0].Cells[8].Value.ToString();
-
-            e.Graphics.DrawString("Numero de Salario: " + SalNum, new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(50, 100));
-            e.Graphics.DrawString("Id del empleado: " + EmpId, new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(50, 150));
-            e.Graphics.DrawString("Nombre del Empleado: " + EmpName, new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(250, 150));
-            e.Graphics.DrawString("Salario base: " + BasSal, new Font("Arial", 10, FontStyle.Bold), Brushes.Blue, new Point(50, 180));
-            e.Graphics.DrawString("Bono: $ " + Bonus, new Font("Arial", 8, FontStyle.Bold), Brushes.Blue, new Point(50, 210));
-            e.Graphics.DrawString("Adelanto en salario: $ " + Advance, new Font("Arial", 8, FontStyle.Bold), Brushes.Blue, new Point(50, 240));
-            e.Graphics.DrawString("Impuesto: $ " + Tax, new Font("Arial", 8, FontStyle.Bold), Brushes.Blue, new Point(50, 270));
-            e.Graphics.DrawString("Total: $ " + Balance, new Font("Arial", 8, FontStyle.Bold), Brushes.Blue, new Point(50, 300));
-            e.Graphics.DrawString("Periodo: " + Period, new Font("Arial", 8, FontStyle.Bold), Brushes.Blue, new Point(50, 330));
-
-            e.Graphics.DrawString("Desarollado por estudiantes de UNICAES" + Period, new Font("Arial", 8, FontStyle.Bold), Brushes.Crimson, new Point(150, 420));
-            e.Graphics.DrawString("Version Final" + Period, new Font("Arial", 8, FontStyle.Bold), Brushes.Crimson, new Point(100, 435));
         }
     }
 }

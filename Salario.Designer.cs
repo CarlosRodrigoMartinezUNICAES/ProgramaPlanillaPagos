@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Salario));
             panel1 = new Panel();
+            SalaryDGV = new Guna.UI2.WinForms.Guna2DataGridView();
             label20 = new Label();
             label14 = new Label();
             label12 = new Label();
@@ -39,7 +43,6 @@
             AttNumCb = new ComboBox();
             label10 = new Label();
             BonusIdCb = new ComboBox();
-            SalaryDGV = new DataGridView();
             BalanceTb = new TextBox();
             EmpIdCb = new ComboBox();
             label11 = new Label();
@@ -96,6 +99,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(SalaryDGV);
             panel1.Controls.Add(label20);
             panel1.Controls.Add(label14);
             panel1.Controls.Add(label12);
@@ -105,7 +109,6 @@
             panel1.Controls.Add(AttNumCb);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(BonusIdCb);
-            panel1.Controls.Add(SalaryDGV);
             panel1.Controls.Add(BalanceTb);
             panel1.Controls.Add(EmpIdCb);
             panel1.Controls.Add(label11);
@@ -133,6 +136,59 @@
             panel1.Size = new Size(834, 567);
             panel1.TabIndex = 23;
             panel1.Paint += panel1_Paint;
+            // 
+            // SalaryDGV
+            // 
+            dataGridViewCellStyle1.BackColor = Color.White;
+            SalaryDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            SalaryDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            SalaryDGV.ColumnHeadersHeight = 4;
+            SalaryDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            SalaryDGV.DefaultCellStyle = dataGridViewCellStyle3;
+            SalaryDGV.GridColor = Color.FromArgb(231, 229, 255);
+            SalaryDGV.Location = new Point(15, 200);
+            SalaryDGV.Name = "SalaryDGV";
+            SalaryDGV.RowHeadersVisible = false;
+            SalaryDGV.RowHeadersWidth = 51;
+            SalaryDGV.RowTemplate.Height = 25;
+            SalaryDGV.Size = new Size(807, 290);
+            SalaryDGV.TabIndex = 54;
+            SalaryDGV.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            SalaryDGV.ThemeStyle.AlternatingRowsStyle.Font = null;
+            SalaryDGV.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            SalaryDGV.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            SalaryDGV.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            SalaryDGV.ThemeStyle.BackColor = Color.White;
+            SalaryDGV.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            SalaryDGV.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            SalaryDGV.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            SalaryDGV.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            SalaryDGV.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            SalaryDGV.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            SalaryDGV.ThemeStyle.HeaderStyle.Height = 4;
+            SalaryDGV.ThemeStyle.ReadOnly = false;
+            SalaryDGV.ThemeStyle.RowsStyle.BackColor = Color.White;
+            SalaryDGV.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            SalaryDGV.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            SalaryDGV.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            SalaryDGV.ThemeStyle.RowsStyle.Height = 25;
+            SalaryDGV.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            SalaryDGV.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            SalaryDGV.CellContentClick += SalaryDGV_CellContentClick;
             // 
             // label20
             // 
@@ -223,18 +279,6 @@
             BonusIdCb.TabIndex = 40;
             BonusIdCb.SelectionChangeCommitted += BonusIdCb_SelectionChangeCommitted;
             // 
-            // SalaryDGV
-            // 
-            SalaryDGV.AllowUserToOrderColumns = true;
-            SalaryDGV.BackgroundColor = Color.White;
-            SalaryDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            SalaryDGV.Location = new Point(3, 207);
-            SalaryDGV.Name = "SalaryDGV";
-            SalaryDGV.RowTemplate.Height = 25;
-            SalaryDGV.Size = new Size(794, 283);
-            SalaryDGV.TabIndex = 39;
-            SalaryDGV.CellContentClick += SalaryDGV_CellContentClick;
-            // 
             // BalanceTb
             // 
             BalanceTb.Location = new Point(13, 163);
@@ -295,7 +339,7 @@
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label18.ForeColor = Color.Black;
-            label18.Location = new Point(146, 539);
+            label18.Location = new Point(141, 539);
             label18.Name = "label18";
             label18.Size = new Size(79, 20);
             label18.TabIndex = 30;
@@ -697,7 +741,6 @@
         private ComboBox EmpIdCb;
         private TextBox textBox3;
         private TextBox BalanceTb;
-        private DataGridView SalaryDGV;
         private ComboBox BonusIdCb;
         private ComboBox AttNumCb;
         private Label label10;
@@ -709,5 +752,6 @@
         private Label label14;
         private PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private Guna.UI2.WinForms.Guna2DataGridView SalaryDGV;
     }
 }

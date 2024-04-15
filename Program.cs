@@ -12,7 +12,7 @@ namespace ProgramaPlanillaPagos
             // see ht tps://aka.ms/applicationconfiguration.
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new Login());
+            Application.Run(new Salario());
         }
     }
 }

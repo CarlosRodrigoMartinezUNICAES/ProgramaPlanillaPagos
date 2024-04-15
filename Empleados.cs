@@ -42,7 +42,7 @@ namespace ProgramaPlanillaPagos
 
         }
 
-        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+        SqlConnection Connection = new SqlConnection(@"Data Source=SPARTAN117\SQLSERVER;Initial Catalog=Planilla;Integrated Security=True");
         private void Clear()
         {
             EmpNameTb.Text = "";
@@ -224,6 +224,18 @@ namespace ProgramaPlanillaPagos
         private void EmpGenCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Principal Obj = new Principal();
+            Obj.Show();
+            this.Hide();
         }
     }
 }

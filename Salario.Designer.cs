@@ -68,7 +68,6 @@
             panel4 = new Panel();
             label6 = new Label();
             label5 = new Label();
-            label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -484,7 +483,6 @@
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label5);
-            panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
@@ -507,7 +505,7 @@
             // panel4
             // 
             panel4.BackColor = Color.MidnightBlue;
-            panel4.Location = new Point(636, 56);
+            panel4.Location = new Point(528, 56);
             panel4.Name = "panel4";
             panel4.Size = new Size(128, 10);
             panel4.TabIndex = 8;
@@ -517,7 +515,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(658, 14);
+            label6.Location = new Point(551, 14);
             label6.Name = "label6";
             label6.Size = new Size(89, 32);
             label6.TabIndex = 5;
@@ -528,22 +526,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(511, 14);
+            label5.Location = new Point(386, 14);
             label5.Name = "label5";
             label5.Size = new Size(119, 32);
             label5.TabIndex = 4;
             label5.Text = "Asistencia";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = Color.Black;
-            label4.Location = new Point(374, 14);
-            label4.Name = "label4";
-            label4.Size = new Size(110, 32);
-            label4.TabIndex = 3;
-            label4.Text = "Adelanto";
             // 
             // label3
             // 
@@ -723,7 +710,6 @@
         private Panel panel4;
         private Label label6;
         private Label label5;
-        private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;

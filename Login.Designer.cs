@@ -39,6 +39,7 @@
             LoginBtn = new PictureBox();
             label4 = new Label();
             ExitButton = new PictureBox();
+            ckmostrar = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)LoginBtn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ExitButton).BeginInit();
@@ -84,6 +85,7 @@
             label2.Size = new Size(88, 30);
             label2.TabIndex = 10;
             label2.Text = "Usuario";
+            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -142,12 +144,25 @@
             ExitButton.TabStop = false;
             ExitButton.Click += ExitButton_Click;
             // 
+            // ckmostrar
+            // 
+            ckmostrar.AutoSize = true;
+            ckmostrar.Location = new Point(622, 270);
+            ckmostrar.Name = "ckmostrar";
+            ckmostrar.Size = new Size(65, 19);
+            ckmostrar.TabIndex = 18;
+            ckmostrar.Text = "Ocultar";
+            ckmostrar.TextAlign = ContentAlignment.TopLeft;
+            ckmostrar.UseVisualStyleBackColor = true;
+            ckmostrar.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(744, 420);
+            Controls.Add(ckmostrar);
             Controls.Add(ExitButton);
             Controls.Add(label4);
             Controls.Add(LoginBtn);
@@ -182,5 +197,6 @@
         private PictureBox LoginBtn;
         private Label label4;
         private PictureBox ExitButton;
+        private CheckBox ckmostrar;
     }
 }

@@ -13,7 +13,7 @@ namespace ProgramaPlanillaPagos
             SumSalary();
             SumBonus();
         }
-        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+        SqlConnection Connection = new SqlConnection(@"Data Source=SPARTAN117\SQLSERVER;Initial Catalog=Planilla;Integrated Security=True");
         private void CountEmployees()
         {
             Connection.Open();
@@ -27,7 +27,7 @@ namespace ProgramaPlanillaPagos
         {
             string Pos = "Manager";
             Connection.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from EmployeeTbl where EmpPos='"+Pos+"'", Connection);
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from EmployeeTbl where EmpPos='" + Pos + "'", Connection);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             ManagerLbl.Text = dt.Rows[0][0].ToString();
@@ -39,7 +39,7 @@ namespace ProgramaPlanillaPagos
             SqlDataAdapter sda = new SqlDataAdapter("Select Sum(EmpBalance) from SalaryTbl", Connection);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            SalaryLbl.Text = "$ " +dt.Rows[0][0].ToString();
+            SalaryLbl.Text = "$ " + dt.Rows[0][0].ToString();
             Connection.Close();
         }
         private void SumBonus()
@@ -84,6 +84,18 @@ namespace ProgramaPlanillaPagos
         private void pictureBox10_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Empleados Obj = new Empleados();
+            Obj.Show();
+            this.Hide();
         }
     }
 }

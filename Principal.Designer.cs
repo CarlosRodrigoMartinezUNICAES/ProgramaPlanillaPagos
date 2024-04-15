@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             panel1 = new Panel();
+            label8 = new Label();
+            pictureBox10 = new PictureBox();
             BonusLbl = new Label();
             SalaryLbl = new Label();
             label14 = new Label();
@@ -46,7 +48,6 @@
             panel4 = new Panel();
             label6 = new Label();
             label5 = new Label();
-            label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -57,9 +58,8 @@
             pictureBox7 = new PictureBox();
             pictureBox8 = new PictureBox();
             pictureBox9 = new PictureBox();
-            pictureBox10 = new PictureBox();
-            label8 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel3.SuspendLayout();
@@ -72,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -93,6 +92,27 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(809, 569);
             panel1.TabIndex = 0;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(316, 532);
+            label8.Name = "label8";
+            label8.Size = new Size(348, 25);
+            label8.TabIndex = 9;
+            label8.Text = "Sistema de Planillas de Pago Version 1.0";
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
+            pictureBox10.Location = new Point(182, 521);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(615, 45);
+            pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox10.TabIndex = 8;
+            pictureBox10.TabStop = false;
             // 
             // BonusLbl
             // 
@@ -222,7 +242,6 @@
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label5);
-            panel2.Controls.Add(label4);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
@@ -256,33 +275,23 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(658, 14);
+            label6.Location = new Point(524, 14);
             label6.Name = "label6";
             label6.Size = new Size(89, 32);
             label6.TabIndex = 5;
             label6.Text = "Planilla";
+            label6.Click += label6_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(511, 14);
+            label5.Location = new Point(380, 14);
             label5.Name = "label5";
             label5.Size = new Size(119, 32);
             label5.TabIndex = 4;
             label5.Text = "Asistencia";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = Color.Black;
-            label4.Location = new Point(374, 14);
-            label4.Name = "label4";
-            label4.Size = new Size(110, 32);
-            label4.TabIndex = 3;
-            label4.Text = "Adelanto";
             // 
             // label3
             // 
@@ -305,6 +314,7 @@
             label2.Size = new Size(130, 32);
             label2.TabIndex = 1;
             label2.Text = "Empleados";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -388,27 +398,6 @@
             pictureBox9.TabIndex = 7;
             pictureBox9.TabStop = false;
             // 
-            // pictureBox10
-            // 
-            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
-            pictureBox10.Location = new Point(182, 521);
-            pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(615, 45);
-            pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox10.TabIndex = 8;
-            pictureBox10.TabStop = false;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.ForeColor = Color.Black;
-            label8.Location = new Point(316, 532);
-            label8.Name = "label8";
-            label8.Size = new Size(348, 25);
-            label8.TabIndex = 9;
-            label8.Text = "Sistema de Planillas de Pago Version 1.0";
-            // 
             // Principal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -430,6 +419,7 @@
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             panel3.ResumeLayout(false);
@@ -444,7 +434,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ResumeLayout(false);
         }
 
@@ -460,7 +449,6 @@
         private Label label2;
         private Label label6;
         private Label label5;
-        private Label label4;
         private Label label3;
         private Label EmpLbl;
         private Label label7;

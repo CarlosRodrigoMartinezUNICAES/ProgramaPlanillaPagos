@@ -26,14 +26,7 @@ namespace ProgramaPlanillaPagos
         }
         private void ShowEmployee()
         {
-            DatabaseConnection.GetConnection();
-            String Query = " Select * from EmployeeTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Connection);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            EmployeeDGV.DataSource = ds.Tables[0];
-            DatabaseConnection.CloseConnection();
+            DGQuerys.ShowData("Select * from EmployeeTbl", EmployeeDGV);
         }
         private void SaveBtn_Click(object sender, EventArgs e)
         {

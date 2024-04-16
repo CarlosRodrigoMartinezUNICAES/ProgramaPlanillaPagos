@@ -27,14 +27,7 @@ namespace ProgramaPlanillaPagos
 
         private void ShowAttendance()
         {
-            DatabaseConnection.GetConnection();
-            String Query = " Select * from AttendanceTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Connection);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            AttendanceDGV.DataSource = ds.Tables[0];
-            DatabaseConnection.CloseConnection();
+            DGQuerys.ShowData("Select * from AttendanceTbl", AttendanceDGV);
         }
 
         private void GetEmpleados()

@@ -29,14 +29,7 @@ namespace ProgramaPlanillaPagos
 
         private void ShowSalary()
         {
-            DatabaseConnection.GetConnection();
-            String Query = " Select * from SalaryTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Connection);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            SalaryDGV.DataSource = ds.Tables[0];
-            DatabaseConnection.CloseConnection();
+            DGQuerys.ShowData("Select * from SalaryTbl", SalaryDGV);
         }
 
         private void GetEmpleados()

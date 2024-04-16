@@ -19,43 +19,22 @@ namespace ProgramaPlanillaPagos
 
         private void CountEmployees()
         {
-            DatabaseConnection.GetConnection();
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from EmployeeTbl", Connection);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            EmpLbl.Text = dt.Rows[0][0].ToString();
-            DatabaseConnection.CloseConnection();
+            EmpLbl.Text = Estadisticas.CountEmployees().ToString();
         }
 
         private void CountManagers()
         {
-            string Pos = "Manager";
-            DatabaseConnection.GetConnection();
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from EmployeeTbl where EmpPos='" + Pos + "'", Connection);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            ManagerLbl.Text = dt.Rows[0][0].ToString();
-            DatabaseConnection.CloseConnection();
+            ManagerLbl.Text = Estadisticas.CountManagers().ToString();
         }
 
         private void SumSalary()
         {
-            DatabaseConnection.GetConnection();
-            SqlDataAdapter sda = new SqlDataAdapter("Select Sum(EmpBalance) from SalaryTbl", Connection);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            SalaryLbl.Text = "$ " + dt.Rows[0][0].ToString();
-            DatabaseConnection.CloseConnection();
+            SalaryLbl.Text = "$ " + Estadisticas.SumSalary().ToString();
         }
 
         private void SumBonus()
         {
-            DatabaseConnection.GetConnection();
-            SqlDataAdapter sda = new SqlDataAdapter("Select Sum(EmpBonus) from SalaryTbl", Connection);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            BonusLbl.Text = "$ " + dt.Rows[0][0].ToString();
-            DatabaseConnection.CloseConnection();
+            BonusLbl.Text = "$ " + Estadisticas.SumBonus().ToString();
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)

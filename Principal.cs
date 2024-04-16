@@ -14,47 +14,48 @@ namespace ProgramaPlanillaPagos
             SumBonus();
         }
 
-        private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+        private SqlConnection Connection = DatabaseConnection.GetConnection();
+        //private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
 
         private void CountEmployees()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from EmployeeTbl", Connection);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             EmpLbl.Text = dt.Rows[0][0].ToString();
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void CountManagers()
         {
             string Pos = "Manager";
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from EmployeeTbl where EmpPos='" + Pos + "'", Connection);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             ManagerLbl.Text = dt.Rows[0][0].ToString();
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void SumSalary()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             SqlDataAdapter sda = new SqlDataAdapter("Select Sum(EmpBalance) from SalaryTbl", Connection);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             SalaryLbl.Text = "$ " + dt.Rows[0][0].ToString();
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void SumBonus()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             SqlDataAdapter sda = new SqlDataAdapter("Select Sum(EmpBonus) from SalaryTbl", Connection);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             BonusLbl.Text = "$ " + dt.Rows[0][0].ToString();
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)

@@ -11,8 +11,7 @@ namespace ProgramaPlanillaPagos
             ShowEmployee();
         }
 
-        private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
-
+        SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
         private void Clear()
         {
             EmpNameTb.Text = "";
@@ -23,32 +22,33 @@ namespace ProgramaPlanillaPagos
             EmpPosCb.SelectedIndex = 0;
             EmpQualCb.SelectedIndex = 0;
             key = 0;
-        }
 
+        }
         private void ShowEmployee()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             String Query = " Select * from EmployeeTbl";
             SqlDataAdapter sda = new SqlDataAdapter(Query, Connection);
             SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
             EmployeeDGV.DataSource = ds.Tables[0];
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
-
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             if (EmpNameTb.Text == "" || EmpPhoneTb.Text == "" || EmpGenCb.SelectedIndex == -1 || EmpAddTb.Text == "" || EmpSalTb.Text == "" || EmpQualCb.SelectedIndex == -1)
             {
                 MessageBox.Show("Falta Informacion");
+
             }
             else
             {
                 try
                 {
-                    Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Insert into EmployeeTbl(EmpName,EmpGen,EmpDOB,EmpPhone,EmpAdd,EmpPos,JoinDate,EmpQual,EmpBasSal) values(@EN,@EG,@ED,@EP,@EA,@Epos,@JD,@EQ,@EBS)", Connection);
+                    SqlConnection connection = DatabaseConnection.GetConnection();
+
+                    SqlCommand cmd = new SqlCommand("Insert into EmployeeTbl(EmpName,EmpGen,EmpDOB,EmpPhone,EmpAdd,EmpPos,JoinDate,EmpQual,EmpBasSal) values(@EN,@EG,@ED,@EP,@EA,@Epos,@JD,@EQ,@EBS)", connection);
                     cmd.Parameters.AddWithValue("@EN", EmpNameTb.Text);
                     cmd.Parameters.AddWithValue("@EG", EmpGenCb.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@ED", EmpDOB.Value.Date);
@@ -60,24 +60,29 @@ namespace ProgramaPlanillaPagos
                     cmd.Parameters.AddWithValue("@EBS", EmpSalTb.Text);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Empleados Guardados");
-                    Connection.Close();
+                    DatabaseConnection.CloseConnection();
                     ShowEmployee();
                     Clear();
                 }
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
+
                 }
+
             }
+
+
+
         }
+
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private int key = 0;
-
+        int key = 0;
         private void EmployeeDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             EmpNameTb.Text = EmployeeDGV.SelectedRows[0].Cells[1].Value.ToString();
@@ -97,6 +102,10 @@ namespace ProgramaPlanillaPagos
             {
                 key = Convert.ToInt32(EmployeeDGV.SelectedRows[0].Cells[0].Value.ToString());
             }
+
+
+
+
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
@@ -104,13 +113,14 @@ namespace ProgramaPlanillaPagos
             if (EmpNameTb.Text == "" || EmpPhoneTb.Text == "" || EmpGenCb.SelectedIndex == -1 || EmpAddTb.Text == "" || EmpSalTb.Text == "" || EmpQualCb.SelectedIndex == -1)
             {
                 MessageBox.Show("Falta Informacion");
+
             }
             else
             {
                 try
                 {
-                    Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Update EmployeeTbl Set (EmpName=@EN,EmpGen=@EG,EmpDOB=@ED,EmpPhone=@EP,EmpAdd=@EA,EmpPos=@Epos,JoinDate=@JD,EmpQual=@EQ,EmpBasSal=@EBS where EmpId=@EmpKey)", Connection);
+                    SqlConnection connection = DatabaseConnection.GetConnection();
+                    SqlCommand cmd = new SqlCommand("Update EmployeeTbl Set (EmpName=@EN,EmpGen=@EG,EmpDOB=@ED,EmpPhone=@EP,EmpAdd=@EA,EmpPos=@Epos,JoinDate=@JD,EmpQual=@EQ,EmpBasSal=@EBS where EmpId=@EmpKey)", connection);
                     cmd.Parameters.AddWithValue("@EN", EmpNameTb.Text);
                     cmd.Parameters.AddWithValue("@EG", EmpGenCb.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@ED", EmpDOB.Value.Date);
@@ -123,14 +133,16 @@ namespace ProgramaPlanillaPagos
                     cmd.Parameters.AddWithValue("@EmpKey", key);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Empleados Actualizados");
-                    Connection.Close();
+                    DatabaseConnection.CloseConnection();
                     ShowEmployee();
                     Clear();
                 }
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
+
                 }
+
             }
         }
 
@@ -139,24 +151,27 @@ namespace ProgramaPlanillaPagos
             if (key == 0)
             {
                 MessageBox.Show("Falta Informacion");
+
             }
             else
             {
                 try
                 {
-                    Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Delete from EmployeeTbl Where EmpId=@EmpKey", Connection);
+                    SqlConnection connection = DatabaseConnection.GetConnection();
+                    SqlCommand cmd = new SqlCommand("Delete from EmployeeTbl Where EmpId=@EmpKey", connection);
                     cmd.Parameters.AddWithValue("@EmpKey", key);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Empleado Eliminado");
-                    Connection.Close();
+                    DatabaseConnection.CloseConnection();
                     ShowEmployee();
                 }
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
+
                 }
+
             }
         }
 

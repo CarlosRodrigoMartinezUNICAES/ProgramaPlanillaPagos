@@ -22,14 +22,14 @@ namespace ProgramaPlanillaPagos
 
         private void ShowBonus()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             String Query = " Select * from BonusTbl";
             SqlDataAdapter sda = new SqlDataAdapter(Query, Connection);
             SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
             BonusDGV.DataSource = ds.Tables[0];
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
@@ -42,13 +42,13 @@ namespace ProgramaPlanillaPagos
             {
                 try
                 {
-                    Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Insert into BonusTbl(Bname,Bamt) values(@BN,@BA)", Connection);
+                    SqlConnection connection = DatabaseConnection.GetConnection();
+                    SqlCommand cmd = new SqlCommand("Insert into BonusTbl(Bname,Bamt) values(@BN,@BA)", connection);
                     cmd.Parameters.AddWithValue("@BN", BNameTb.Text);
                     cmd.Parameters.AddWithValue("@BA", BAmountTb.Text);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Bono Guardado");
-                    Connection.Close();
+                    DatabaseConnection.CloseConnection();
                     ShowBonus();
                     Clear();
                 }
@@ -85,14 +85,14 @@ namespace ProgramaPlanillaPagos
             {
                 try
                 {
-                    Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Update BonusTbl Set BName=@BN, BAmt=@BA where Bid=@Bkey", Connection);
+                    SqlConnection connection = DatabaseConnection.GetConnection();
+                    SqlCommand cmd = new SqlCommand("Update BonusTbl Set BName=@BN, BAmt=@BA where Bid=@Bkey", connection);
                     cmd.Parameters.AddWithValue("@BN", BNameTb.Text);
                     cmd.Parameters.AddWithValue("@BA", BAmountTb.Text);
                     cmd.Parameters.AddWithValue("@BKey", Key);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Actualizar Bono");
-                    Connection.Close();
+                    DatabaseConnection.CloseConnection();
                     ShowBonus();
                     Clear();
                 }
@@ -118,13 +118,13 @@ namespace ProgramaPlanillaPagos
             {
                 try
                 {
-                    Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Delete from BonusTbl Where BId=@BKey", Connection);
+                    SqlConnection connection = DatabaseConnection.GetConnection();
+                    SqlCommand cmd = new SqlCommand("Delete from BonusTbl Where BId=@BKey", connection);
                     cmd.Parameters.AddWithValue("@BKey", Key);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Bono Eliminado");
-                    Connection.Close();
+                    DatabaseConnection.CloseConnection();
                     ShowBonus();
                 }
                 catch (Exception Ex)

@@ -12,7 +12,8 @@ namespace ProgramaPlanillaPagos
             GetEmpleados();
         }
 
-        private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+        private SqlConnection Connection = DatabaseConnection.GetConnection();
+        //private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
 
         private void Clear()
         {
@@ -26,19 +27,19 @@ namespace ProgramaPlanillaPagos
 
         private void ShowAttendance()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             String Query = " Select * from AttendanceTbl";
             SqlDataAdapter sda = new SqlDataAdapter(Query, Connection);
             SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
             AttendanceDGV.DataSource = ds.Tables[0];
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void GetEmpleados()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             SqlCommand cmd = new SqlCommand("Select * from EmployeeTbl", Connection);
             SqlDataReader Rdr;
             Rdr = cmd.ExecuteReader();
@@ -47,13 +48,13 @@ namespace ProgramaPlanillaPagos
             dt.Load(Rdr);
             EmpIdCb.ValueMember = "EmpId";
             EmpIdCb.DataSource = dt;
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void GetEmpleadosNombre()
         {
-            Connection.Open();
-            String query = " Select * from EmployeeTbl where EmpId " + EmpIdCb.SelectedValue.ToString() + "";
+            DatabaseConnection.GetConnection();
+            String query = " Select * from EmployeeTbl where EmpId= " + EmpIdCb.SelectedValue.ToString() + "";
             SqlCommand cmd = new SqlCommand(query, Connection);
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -62,7 +63,7 @@ namespace ProgramaPlanillaPagos
             {
                 EmpNameTb.Text = dr["EmpName"].ToString();
             }
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void GuardarBoton_Click(object sender, EventArgs e)
@@ -76,8 +77,9 @@ namespace ProgramaPlanillaPagos
                 try
                 {
                     string Period = AttDate.Value.Month + "-" + AttDate.Value.Year;
-                    Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Insert into AttendanceTbl(EmpId,EmpName,DayPres,DayAbs,DayExcused,Period) values(@EI,@EN,@DP,@DA,@DE,@Per)", Connection);
+                    SqlConnection connection = DatabaseConnection.GetConnection();
+
+                    SqlCommand cmd = new SqlCommand("Insert into AttendanceTbl(EmpId,EmpName,DayPres,DayAbs,DayExcused,Period) values(@EI,@EN,@DP,@DA,@DE,@Per)", connection);
                     cmd.Parameters.AddWithValue("@EI", EmpIdCb.Text);
                     cmd.Parameters.AddWithValue("@EN", EmpNameTb.Text);
                     cmd.Parameters.AddWithValue("@DP", PresenceTb.Text);
@@ -87,7 +89,7 @@ namespace ProgramaPlanillaPagos
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Asistencia Guardada");
-                    Connection.Close();
+                    DatabaseConnection.CloseConnection();
                     ShowAttendance();
                     Clear();
                 }
@@ -109,8 +111,8 @@ namespace ProgramaPlanillaPagos
                 try
                 {
                     string Period = AttDate.Value.Month + "-" + AttDate.Value.Year;
-                    Connection.Open();
-                    SqlCommand cmd = new SqlCommand("Update AttendanceTbl Set EmpId=@EI,EmpName=@EN,DayPres=@DP,DayAbs=@DA,DayExcused=@DE,Period=@Per where AttNum=@AttKey", Connection);
+                    SqlConnection connection = DatabaseConnection.GetConnection();
+                    SqlCommand cmd = new SqlCommand("Update AttendanceTbl Set EmpId=@EI,EmpName=@EN,DayPres=@DP,DayAbs=@DA,DayExcused=@DE,Period=@Per where AttNum=@AttKey", connection);
                     cmd.Parameters.AddWithValue("@EI", EmpIdCb.Text);
                     cmd.Parameters.AddWithValue("@EN", EmpNameTb.Text);
                     cmd.Parameters.AddWithValue("@DP", PresenceTb.Text);
@@ -121,7 +123,7 @@ namespace ProgramaPlanillaPagos
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Asistencia Actualizada");
-                    Connection.Close();
+                    DatabaseConnection.CloseConnection();
                     ShowAttendance();
                     Clear();
                 }

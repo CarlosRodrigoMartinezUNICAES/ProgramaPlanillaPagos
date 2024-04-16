@@ -42,10 +42,8 @@
             AbsTb = new TextBox();
             label10 = new Label();
             PresenceTb = new TextBox();
-            EliminarBoton = new Label();
             EditarBoton = new Label();
             GuardarBoton = new Label();
-            pictureBox11 = new PictureBox();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             label9 = new Label();
@@ -74,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AttendanceDGV).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel2.SuspendLayout();
@@ -121,10 +118,8 @@
             panel1.Controls.Add(AbsTb);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(PresenceTb);
-            panel1.Controls.Add(EliminarBoton);
             panel1.Controls.Add(EditarBoton);
             panel1.Controls.Add(GuardarBoton);
-            panel1.Controls.Add(pictureBox11);
             panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(pictureBox5);
             panel1.Controls.Add(label9);
@@ -248,17 +243,6 @@
             PresenceTb.Size = new Size(113, 23);
             PresenceTb.TabIndex = 41;
             // 
-            // EliminarBoton
-            // 
-            EliminarBoton.AutoSize = true;
-            EliminarBoton.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            EliminarBoton.ForeColor = Color.Black;
-            EliminarBoton.Location = new Point(146, 539);
-            EliminarBoton.Name = "EliminarBoton";
-            EliminarBoton.Size = new Size(66, 20);
-            EliminarBoton.TabIndex = 30;
-            EliminarBoton.Text = "Eliminar";
-            // 
             // EditarBoton
             // 
             EditarBoton.AutoSize = true;
@@ -281,16 +265,6 @@
             GuardarBoton.TabIndex = 9;
             GuardarBoton.Text = "Guardar";
             GuardarBoton.Click += GuardarBoton_Click;
-            // 
-            // pictureBox11
-            // 
-            pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
-            pictureBox11.Location = new Point(158, 496);
-            pictureBox11.Name = "pictureBox11";
-            pictureBox11.Size = new Size(40, 40);
-            pictureBox11.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox11.TabIndex = 28;
-            pictureBox11.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -338,7 +312,7 @@
             EmpIdCb.Name = "EmpIdCb";
             EmpIdCb.Size = new Size(65, 23);
             EmpIdCb.TabIndex = 11;
-            EmpIdCb.SelectionChangeCommitted += GuardarBoton_Click;
+            EmpIdCb.SelectionChangeCommitted += EmpIdCb_SelectionChangeCommitted;
             // 
             // label8
             // 
@@ -576,7 +550,6 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)AttendanceDGV).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             panel2.ResumeLayout(false);

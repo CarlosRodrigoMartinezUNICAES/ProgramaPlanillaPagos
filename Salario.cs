@@ -14,7 +14,8 @@ namespace ProgramaPlanillaPagos
             ShowSalary();
         }
 
-        private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
+        private SqlConnection Connection = DatabaseConnection.GetConnection();
+        //private SqlConnection Connection = new SqlConnection(@"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True");
 
         private void Clear()
         {
@@ -28,19 +29,19 @@ namespace ProgramaPlanillaPagos
 
         private void ShowSalary()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             String Query = " Select * from SalaryTbl";
             SqlDataAdapter sda = new SqlDataAdapter(Query, Connection);
             SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
             var ds = new DataSet();
             sda.Fill(ds);
             SalaryDGV.DataSource = ds.Tables[0];
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void GetEmpleados()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             SqlCommand cmd = new SqlCommand("Select * from EmployeeTbl", Connection);
             SqlDataReader Rdr;
             Rdr = cmd.ExecuteReader();
@@ -49,12 +50,12 @@ namespace ProgramaPlanillaPagos
             dt.Load(Rdr);
             EmpIdCb.ValueMember = "EmpId";
             EmpIdCb.DataSource = dt;
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void GetBonus()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             SqlCommand cmd = new SqlCommand("Select * from BonusTbl", Connection);
             SqlDataReader Rdr;
             Rdr = cmd.ExecuteReader();
@@ -63,12 +64,12 @@ namespace ProgramaPlanillaPagos
             dt.Load(Rdr);
             BonusIdCb.ValueMember = "BName";
             BonusIdCb.DataSource = dt;
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void GetAttendance()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             SqlCommand cmd = new SqlCommand("Select * from AttendanceTbl Where EmpId=" + EmpIdCb.SelectedValue.ToString() + "", Connection);
             SqlDataReader Rdr;
             Rdr = cmd.ExecuteReader();
@@ -77,12 +78,12 @@ namespace ProgramaPlanillaPagos
             dt.Load(Rdr);
             AttNumCb.ValueMember = "AttNum";
             AttNumCb.DataSource = dt;
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void GetAttendanceData()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             String query = "Select * from AttendanceTbl Where AttNum= " + AttNumCb.SelectedValue.ToString() + "";
             SqlCommand cmd = new SqlCommand(query, Connection);
             DataTable dt = new DataTable();
@@ -94,12 +95,12 @@ namespace ProgramaPlanillaPagos
                 AbsTb.Text = dr["DayAbs"].ToString();
                 ExcusedTb.Text = dr["DayExcused"].ToString();
             }
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void GetEmpleadosNombre()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             String query = "SELECT * FROM EmployeeTbl WHERE EmpId=" + EmpIdCb.SelectedValue.ToString() + "";
             SqlCommand cmd = new SqlCommand(query, Connection);
             DataTable dt = new DataTable();
@@ -110,12 +111,12 @@ namespace ProgramaPlanillaPagos
                 EmpNameTb.Text = dr["EmpName"].ToString();
                 BaseSalaryTb.Text = dr["EmpBasSal"].ToString();
             }
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void GetBonusAmt()
         {
-            Connection.Open();
+            DatabaseConnection.GetConnection();
             String query = "Select * from BonusTbl where BName= '" + BonusIdCb.SelectedValue.ToString() + "'";
             SqlCommand cmd = new SqlCommand(query, Connection);
             DataTable dt = new DataTable();
@@ -126,7 +127,7 @@ namespace ProgramaPlanillaPagos
                 BonusTb.Text = dr["BAmt"].ToString();
                 BonusTb.Text = dr["BAmt"].ToString();
             }
-            Connection.Close();
+            DatabaseConnection.CloseConnection();
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -201,7 +202,7 @@ namespace ProgramaPlanillaPagos
                 try
                 {
                     string Period = SalDate.Value.Month + "-" + SalDate.Value.Year;
-                    Connection.Open();
+                    DatabaseConnection.GetConnection();
                     SqlCommand cmd = new SqlCommand("Insert into SalaryTbl(EmpId,EmpName,EmpBasSal,EmpBonus,EmpAdvance,EmpTax,EmpBalance,SalPeriod) values(@EI,@EN,@EBS,@EBon,@EAd,@ETax,@EBalance,@SPer)", Connection);
                     cmd.Parameters.AddWithValue("@EI", EmpIdCb.SelectedValue.ToString());
                     cmd.Parameters.AddWithValue("@EN", EmpNameTb.Text);
@@ -213,7 +214,7 @@ namespace ProgramaPlanillaPagos
                     cmd.Parameters.AddWithValue("@SPer", Period);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Salario Guardado");
-                    Connection.Close();
+                    DatabaseConnection.CloseConnection();
                     ShowSalary();
                     Clear();
                 }

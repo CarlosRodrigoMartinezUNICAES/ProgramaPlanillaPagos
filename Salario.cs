@@ -34,61 +34,27 @@ namespace ProgramaPlanillaPagos
 
         private void GetEmpleados()
         {
-            DatabaseConnection.GetConnection();
-            SqlCommand cmd = new SqlCommand("Select * from EmployeeTbl", Connection);
-            SqlDataReader Rdr;
-            Rdr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("EmpId", typeof(int));
-            dt.Load(Rdr);
-            EmpIdCb.ValueMember = "EmpId";
-            EmpIdCb.DataSource = dt;
-            DatabaseConnection.CloseConnection();
+            GetMethods.GetEmpleados();
         }
 
         private void GetBonus()
         {
-            DatabaseConnection.GetConnection();
-            SqlCommand cmd = new SqlCommand("Select * from BonusTbl", Connection);
-            SqlDataReader Rdr;
-            Rdr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("BName", typeof(string));
-            dt.Load(Rdr);
-            BonusIdCb.ValueMember = "BName";
-            BonusIdCb.DataSource = dt;
-            DatabaseConnection.CloseConnection();
+            GetMethods.GetBonus(BonusIdCb);
         }
 
         private void GetAttendance()
         {
-            DatabaseConnection.GetConnection();
-            SqlCommand cmd = new SqlCommand("Select * from AttendanceTbl Where EmpId=" + EmpIdCb.SelectedValue.ToString() + "", Connection);
-            SqlDataReader Rdr;
-            Rdr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("AttNum", typeof(int));
-            dt.Load(Rdr);
-            AttNumCb.ValueMember = "AttNum";
-            AttNumCb.DataSource = dt;
-            DatabaseConnection.CloseConnection();
+            GetMethods.GetAttendance(AttNumCb, int.Parse(EmpIdCb.SelectedValue.ToString()));
         }
 
         private void GetAttendanceData()
         {
-            DatabaseConnection.GetConnection();
-            String query = "Select * from AttendanceTbl Where AttNum= " + AttNumCb.SelectedValue.ToString() + "";
-            SqlCommand cmd = new SqlCommand(query, Connection);
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                PresTb.Text = dr["DayPres"].ToString();
-                AbsTb.Text = dr["DayAbs"].ToString();
-                ExcusedTb.Text = dr["DayExcused"].ToString();
-            }
-            DatabaseConnection.CloseConnection();
+            GetMethods.GetAttendanceData(
+                int.Parse(AttNumCb.SelectedValue.ToString()),
+                PresTb,
+                AbsTb,
+                ExcusedTb
+            );
         }
 
         private void GetEmpleadosNombre()
@@ -109,20 +75,11 @@ namespace ProgramaPlanillaPagos
 
         private void GetBonusAmt()
         {
-            DatabaseConnection.GetConnection();
-            String query = "Select * from BonusTbl where BName= '" + BonusIdCb.SelectedValue.ToString() + "'";
-            SqlCommand cmd = new SqlCommand(query, Connection);
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
-            {
-                BonusTb.Text = dr["BAmt"].ToString();
-                BonusTb.Text = dr["BAmt"].ToString();
-            }
-            DatabaseConnection.CloseConnection();
+            GetMethods.GetBonusAmt(
+                BonusIdCb.SelectedValue.ToString(),
+                BonusTb
+            );
         }
-
         private void label9_Click(object sender, EventArgs e)
         {
         }

@@ -4,16 +4,6 @@ using System.Windows.Forms;
 
 public class GetMethods
 {
-    public static DataTable GetEmpleados()
-    {
-        SqlConnection Connection = DatabaseConnection.GetConnection();
-        SqlCommand cmd = new SqlCommand("Select * from EmployeeTbl", Connection);
-        SqlDataReader rdr = cmd.ExecuteReader();
-        DataTable dt = new DataTable();
-        dt.Load(rdr);
-        DatabaseConnection.CloseConnection();
-        return dt;
-    }
 
     public static void GetEmpleadosNombreSalario(int empId, TextBox empNameTb, TextBox baseSalaryTb)
     {
@@ -95,21 +85,5 @@ public class GetMethods
         DatabaseConnection.CloseConnection();
 
 
-    }
-    public static void GetEmpleadosNombreAsistencia(int empId, TextBox empNameTb)
-    {
-        SqlConnection Connection = DatabaseConnection.GetConnection();
-        string query = "SELECT * FROM EmployeeTbl WHERE EmpId = @EmpId";
-        SqlCommand cmd = new SqlCommand(query, Connection);
-        cmd.Parameters.AddWithValue("@EmpId", empId);
-        DataTable dt = new DataTable();
-        SqlDataAdapter sda = new SqlDataAdapter(cmd);
-        sda.Fill(dt);
-        foreach (DataRow dr in dt.Rows)
-        {
-            empNameTb.Text = dr["EmpName"].ToString();
-            
-        }
-        DatabaseConnection.CloseConnection();
     }
 }

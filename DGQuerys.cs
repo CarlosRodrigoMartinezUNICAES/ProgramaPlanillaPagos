@@ -8,8 +8,6 @@ public class DGQuerys
  
     public static void ShowData(string query, DataGridView dataGridView)
     {
-
-
         SqlConnection Connection = DatabaseConnection.GetConnection();
         SqlDataAdapter sda = new SqlDataAdapter(query, Connection);
         SqlCommandBuilder builder = new SqlCommandBuilder(sda);

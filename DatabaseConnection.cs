@@ -2,7 +2,7 @@
 
 public class DatabaseConnection
 {
-    private static string connectionString = @"Data Source=DESKTOP-8KSDFKL\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True";
+    private static string connectionString = @"Data Source=DESKTOP-LGTP4HK\SQLEXPRESS;Initial Catalog=Planilla;Integrated Security=True";
     private static SqlConnection Connection;
 
     private DatabaseConnection()

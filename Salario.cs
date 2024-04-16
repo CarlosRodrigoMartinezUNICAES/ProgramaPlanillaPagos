@@ -34,7 +34,16 @@ namespace ProgramaPlanillaPagos
 
         private void GetEmpleados()
         {
-            GetMethods.GetEmpleados();
+            DatabaseConnection.GetConnection();
+            SqlCommand cmd = new SqlCommand("Select * from EmployeeTbl", Connection);
+            SqlDataReader Rdr;
+            Rdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("EmpId", typeof(int));
+            dt.Load(Rdr);
+            EmpIdCb.ValueMember = "EmpId";
+            EmpIdCb.DataSource = dt;
+            DatabaseConnection.CloseConnection();
         }
 
         private void GetBonus()
@@ -131,7 +140,7 @@ namespace ProgramaPlanillaPagos
                 Abs = Convert.ToInt32(AbsTb.Text);
                 Exc = Convert.ToInt32(ExcusedTb.Text);
                 DailyBase = Convert.ToInt32(BaseSalaryTb.Text) / 22;
-                Total = ((DailyBase) * Pres) + ((DailyBase / 2) * Exc) + ((DailyBase) * Pres);
+                Total = ((DailyBase) * Pres) + ((DailyBase / 2) * Exc) - ((DailyBase) * Abs);
                 double ISSS = Total * 0.03;
                 double IVA = Total * 0.0725;
                 double Renta = Total * 0.1;

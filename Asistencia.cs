@@ -32,15 +32,31 @@ namespace ProgramaPlanillaPagos
 
         private void GetEmpleados()
         {
-            GetMethods.GetEmpleados();
+            DatabaseConnection.GetConnection();
+            SqlCommand cmd = new SqlCommand("Select * from EmployeeTbl", Connection);
+            SqlDataReader Rdr;
+            Rdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("EmpId", typeof(int));
+            dt.Load(Rdr);
+            EmpIdCb.ValueMember = "EmpId";
+            EmpIdCb.DataSource = dt;
+            DatabaseConnection.CloseConnection();
         }
 
         private void GetEmpleadosNombre()
         {
-            GetMethods.GetEmpleadosNombreAsistencia(
-         int.Parse(EmpIdCb.SelectedValue.ToString()),
-         EmpNameTb
-     );
+            SqlConnection Connection = DatabaseConnection.GetConnection();
+            String query = " Select * from EmployeeTbl where EmpId=" + EmpIdCb.SelectedValue.ToString() + "";
+            SqlCommand cmd = new SqlCommand(query, Connection);
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                EmpNameTb.Text = dr["EmpName"].ToString();
+            }
+            DatabaseConnection.CloseConnection();
         }
 
         private void GuardarBoton_Click(object sender, EventArgs e)

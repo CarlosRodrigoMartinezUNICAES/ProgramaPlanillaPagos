@@ -264,11 +264,8 @@ namespace ProgramaPlanillaPagos
 
         private void SalaryDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 500, 800);
-            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
-            {
-                printDocument1.Print();
-            }
+            CrearPDF crearPDF = new CrearPDF();
+            crearPDF.ImprimirDesdeNombre(SalaryDGV, printDocument1);
         }
 
         private void label5_Click(object sender, EventArgs e)
